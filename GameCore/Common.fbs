@@ -1,0 +1,41 @@
+namespace TB;
+struct Vector8Data
+{
+	x							: float;
+	y 							: float;
+	z 							: float;
+	w 							: float;
+	x2							: float;
+    y2 							: float;
+    z2 							: float;
+    w2 							: float;
+}
+struct Vector4Data
+{
+	x							: float;
+	y 							: float;
+	z 							: float;
+	w 							: float;
+}
+
+struct Vector3Data
+{
+	x							: float;
+	y 							: float;
+	z 							: float;
+}
+
+struct SVector3
+{
+	x							: float;
+	y 							: float;
+	z 							: float;
+}
+
+struct Vector2Data
+{
+	x							: float;
+	y 							: float;
+	
+}
+

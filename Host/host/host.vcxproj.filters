@@ -1,0 +1,768 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{f16a3c52-44e3-4959-ac9c-3fa00050ef80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="protobuf">
+      <UniqueIdentifier>{35aadac9-e8d0-4fc4-b9e5-bb80098adc9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="protocol">
+      <UniqueIdentifier>{9d19f274-5f48-491d-949b-8072ebfa5e7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utility">
+      <UniqueIdentifier>{ff9a1468-5fe7-4f7c-b2bd-bf1eebe3dd74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physics">
+      <UniqueIdentifier>{c05f03c2-cea9-4f59-9c88-e19029d8b91a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="character">
+      <UniqueIdentifier>{5876ed73-fca9-4d40-b3fc-fafc91d3a3c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ProcessPacket">
+      <UniqueIdentifier>{fdb60fd7-9410-407a-82cb-6fdf001cce92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="state">
+      <UniqueIdentifier>{2cb7fdac-d1e4-42e2-8fb6-a5c3ca9017b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="character\State">
+      <UniqueIdentifier>{45090e4f-5fa9-4853-8832-ee1438ffc65f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="character\hero">
+      <UniqueIdentifier>{61121dd0-781b-41aa-8b37-2ab2d89882ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="state\static">
+      <UniqueIdentifier>{010bf8f0-6e1b-460b-9377-6e02a564f625}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TestStruct.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="Host.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="HostDefine.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="HostStruct.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="HostUserInfo.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="HostCommonData.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="HostEnum.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="HostTypeDefine.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketBase.h">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Util.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsHandler.h">
+      <Filter>physics</Filter>
+    </ClInclude>
+    <ClInclude Include="HostAPI.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CSVParser.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="InGameBalanceData.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceBase.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceCppHeader.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceStruct.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ShotSolution.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CSVLoader.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BallController.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ShotSolutionData.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="FileLog.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="EnvironmentObject.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="HostCommonFunction.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeManager.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DevManager.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="HeaderDefine.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketImplement.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="FlatBufPacket.h">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="FlatBufPacketImplement.h">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="FlatBufProtocol.h">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>character</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterManager.h">
+      <Filter>character</Filter>
+    </ClInclude>
+    <ClInclude Include="Ability.h">
+      <Filter>character</Filter>
+    </ClInclude>
+    <ClInclude Include="MannerManager.h">
+      <Filter>character</Filter>
+    </ClInclude>
+    <ClInclude Include="VerifyManager.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="XorShift.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Wuko.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Olga.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultCharacter.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Lucky.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Aldo.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Ling.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Arrange.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_BreakTime.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Challenge.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Challenge_JumpShotBlock.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Challenge_JumpShotBlock_BreakTime.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Challenge_JumpShotBlock_End.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Challenge_JumpShotBlock_Init.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Challenge_JumpShotBlock_Play.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Challenge_JumpShotBlock_Ready.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Challenge_OffBallMove.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Challenge_OffBallMove_End.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Challenge_OffBallMove_Init.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Challenge_OffBallMove_Play.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Challenge_OffBallMove_Ready.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Challenge_Pass.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Challenge_Pass_End.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Challenge_Pass_Init.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Challenge_Pass_Play.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Challenge_Pass_Ready.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Challenge_Rebound.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Challenge_Rebound_End.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Challenge_Rebound_Init.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Challenge_Rebound_Play.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Challenge_Rebound_Ready.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_ChallengeResult.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_End.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Init.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_JumpBall.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_LineUp.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Load.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Play.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Ready.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_SceneStart.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Result.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Score.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Training.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Tutorial.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessPacket.h">
+      <Filter>ProcessPacket</Filter>
+    </ClInclude>
+    <ClInclude Include="Tina.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Ivan.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Norma.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Duke.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Luyao.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Lily.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Qiuayanyu.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Uncle.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Sarang.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Aimar.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Lia.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterMovement.h">
+      <Filter>character</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterBuff.h">
+      <Filter>character</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterState.h">
+      <Filter>character\State</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterState_Block.h">
+      <Filter>character\State</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterState_FakeShot.h">
+      <Filter>character\State</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterState_Move.h">
+      <Filter>character\State</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterState_Pass.h">
+      <Filter>character\State</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterState_Pick.h">
+      <Filter>character\State</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterState_Rebound.h">
+      <Filter>character\State</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterState_Shot.h">
+      <Filter>character\State</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterState_Stand.h">
+      <Filter>character\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Niky.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Mina.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Kyle.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterAction.h">
+      <Filter>character</Filter>
+    </ClInclude>
+    <ClInclude Include="Kent.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Sam.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Flores.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="State_MiniGameCustom.h">
+      <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="Play_c2s_ballShot.h">
+      <Filter>state\static</Filter>
+    </ClInclude>
+    <ClInclude Include="Play_c2s_common.h">
+      <Filter>state\static</Filter>
+    </ClInclude>
+    <ClInclude Include="LinCC.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Hayato.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Jacky.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Kido.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Momo.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Qiqi.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Xiao.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Thompson.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Okafor.h">
+      <Filter>character\hero</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Host.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Util.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="HostUserInfo.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsHandler.cpp">
+      <Filter>physics</Filter>
+    </ClCompile>
+    <ClCompile Include="HostAPI.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CSVParser.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="InGameBalanceData.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ShotSolution.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CSVLoader.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BallController.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ShotSolutionData.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="FileLog.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="EnvironmentObject.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DevManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="FlatBufPacketImplement.cpp">
+      <Filter>protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="FlatBufProtocol.cpp">
+      <Filter>protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>character</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterManager.cpp">
+      <Filter>character</Filter>
+    </ClCompile>
+    <ClCompile Include="Ability.cpp">
+      <Filter>character</Filter>
+    </ClCompile>
+    <ClCompile Include="HostCommonFunction.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="MannerManager.cpp">
+      <Filter>character</Filter>
+    </ClCompile>
+    <ClCompile Include="VerifyManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="XorShift.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Wuko.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Olga.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultCharacter.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Lucky.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Aldo.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Ling.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Arrange.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_BreakTime.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Challenge.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Challenge_JumpShotBlock.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Challenge_JumpShotBlock_BreakTime.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Challenge_JumpShotBlock_End.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Challenge_JumpShotBlock_Init.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Challenge_JumpShotBlock_Play.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Challenge_JumpShotBlock_Ready.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Challenge_OffBallMove.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Challenge_OffBallMove_End.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Challenge_OffBallMove_Init.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Challenge_OffBallMove_Play.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Challenge_OffBallMove_Ready.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Challenge_Pass.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Challenge_Pass_End.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Challenge_Pass_Init.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Challenge_Pass_Play.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Challenge_Pass_Ready.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Challenge_Rebound.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Challenge_Rebound_End.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Challenge_Rebound_Init.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Challenge_Rebound_Play.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Challenge_Rebound_Ready.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_ChallengeResult.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_End.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Init.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_JumpBall.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_LineUp.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Load.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Play.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Ready.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Result.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_SceneStart.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Score.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Training.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Tutorial.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessPacket.cpp">
+      <Filter>ProcessPacket</Filter>
+    </ClCompile>
+    <ClCompile Include="Tina.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Ivan.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Norma.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Duke.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Luyao.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Lily.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Qiuayanyu.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Uncle.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Sarang.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Aimar.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Lia.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterMovement.cpp">
+      <Filter>character</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterBuff.cpp">
+      <Filter>character</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterState.cpp">
+      <Filter>character\State</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterState_Block.cpp">
+      <Filter>character\State</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterState_FakeShot.cpp">
+      <Filter>character\State</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterState_Move.cpp">
+      <Filter>character\State</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterState_Pass.cpp">
+      <Filter>character\State</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterState_Pick.cpp">
+      <Filter>character\State</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterState_Rebound.cpp">
+      <Filter>character\State</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterState_Shot.cpp">
+      <Filter>character\State</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterState_Stand.cpp">
+      <Filter>character\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Niky.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Mina.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Kyle.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterAction.cpp">
+      <Filter>character</Filter>
+    </ClCompile>
+    <ClCompile Include="Kent.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Sam.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Flores.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="State_MiniGameCustom.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
+    <ClCompile Include="Play_c2s_ballShot.cpp">
+      <Filter>state\static</Filter>
+    </ClCompile>
+    <ClCompile Include="Play_c2s_common.cpp">
+      <Filter>state\static</Filter>
+    </ClCompile>
+    <ClCompile Include="LinCC.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Hayato.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Jacky.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Kido.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Momo.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Qiqi.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Xiao.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Thompson.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Okafor.cpp">
+      <Filter>character\hero</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+  </ItemGroup>
+</Project>

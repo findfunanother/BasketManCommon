@@ -1,0 +1,124 @@
+﻿//{{NO_DEPENDENCIES}}
+// Microsoft Visual C++에서 생성한 포함 파일입니다.
+// HostTest.rc에서 사용되고 있습니다.
+//
+#define IDC_MYICON                      2
+#define IDD_HOSTTEST_DIALOG             102
+#define IDS_APP_TITLE                   103
+#define IDD_ABOUTBOX                    103
+#define IDM_ABOUT                       104
+#define IDM_EXIT                        105
+#define IDI_HOSTTEST                    107
+#define IDI_SMALL                       108
+#define IDC_HOSTTEST                    109
+#define IDR_MAINFRAME                   128
+#define ID_NO_CHECK_TIME                32778
+#define ID_NO_CHECK_GOAL                32779
+#define ID_NO_CHECK_SHOTCLOCK           32780
+#define ID_CREATE_NORMAL                32781
+#define ID_PLAY_PACKET_SAVE             32783
+#define ID_DEBUG_NOKICK                 32784
+#define ID_DEBUG_PREVENT_AFK            32785
+#define ID_PLAYPACKETSAVE_32790         32790
+#define ID_32791                        32791
+#define ID_32792                        32792
+#define ID_32793                        32793
+#define ID_32794                        32794
+#define ID_32795                        32795
+#define ID_TIME_1                       32796
+#define ID_32797                        32797
+#define ID_32798                        32798
+#define ID_32799                        32799
+#define ID_32800                        32800
+#define ID_32801                        32801
+#define ID_TIME_2                       32802
+#define ID_TIME_3                       32803
+#define ID_TIME_4                       32804
+#define ID_TIME_5                       32805
+#define ID_32806                        32806
+#define ID_SHOTFAIL                     32807
+#define ID_FILES_CREATETUTORIAL         32809
+#define ID_CREATE_CHALLENGE_1           32811
+#define ID_CREATE_CHALLENGE_2           32812
+#define ID_CREATE_CHALLENGE_3           32813
+#define ID_CREATE_CHALLENGE_4           32814
+#define ID_CREATE_TRAINING              32815
+#define ID_DEBUG_PLAYMONITOR            32816
+#define ID_OPTION_AUTOAICHANGE          32817
+#define ID_GAMETIME_6MINUTES            32818
+#define ID_GAMETIME_7MINUTES            32819
+#define ID_GAMETIME_6MINUTES32820       32820
+#define ID_GAMETIME_6MINUTES32821       32821
+#define ID_GAMETIME_6MINUTES32822       32822
+#define ID_TIME_6                       32823
+#define ID_TIME_7                       32824
+#define ID_TIME_8                       32825
+#define ID_TIME_9                       32826
+#define ID_TIME_10                      32827
+#define ID_FILES_UPDATEDATA             32828
+#define ID_UPDATEDATA_ANIMATIONDATA     32829
+#define ID_UPDATEDATA_BALANCEDATA       32830
+#define ID_UPDATEDATA_SHOTSOLUTION      32831
+#define ID_DEBUG_PACKETTEST             32832
+#define ID_FILES_CREATETRIO             32833
+#define ID_CREATE_TRIO                  32834
+#define ID_FILES_CREATECONTINUOUS       32835
+#define ID_CREATE_CONTINUOUS            32836
+#define ID_STAGE_STAGE3                 32837
+#define ID_STAGE_3                      32838
+#define ID_STAGE_RANDOM                 32839
+#define ID_STAGE_4                      32840
+#define ID_CREATE_TUTORIAL_BASIC        32841
+#define ID_CREATE_TUTORIAL_PASS         32842
+#define ID_CREATE_TUTORIAL_STEAL        32843
+#define ID_CREATE_TUTORIAL_DIVINGCATCH  32844
+#define ID_CREATE_TUTORIAL_JUMPSHOT     32845
+#define ID_CREATE_TUTORIAL_RIMATTACK    32846
+#define ID_CREATE_TUTORIAL_JUMPSHOTBLOCK 32847
+#define ID_CREATE_TUTORIAL_REBOUNDBEGINNER 32848
+#define ID_CREATE_TUTORIAL_REBOUND      32849
+#define ID_CREATE_TUTORIAL_BEGINNERBLOCK 32850
+#define ID_CREATE_TUTORIAL_RIMATTACKBLOCK 32851
+#define ID_CREATE_TUTORIAL_BOXOUT       32852
+#define ID_CREATE_TUTORIAL_PENETRATE    32853
+#define ID_CREATE_TUTORIAL_SHOOTINGDISTURB 32854
+#define ID_CREATE_TRAINING_REBOUND      32855
+#define ID_CREATE_TRAINING_JUMPSHOTBLOCK 32856
+#define ID_CREATE_TRAINING_RIMATTACKBLOCK 32857
+#define ID_CREATE_TRAINING_OFFBALLMOVE  32858
+#define ID_CREATE_TRIO_PVP_MIXED        32859
+#define ID_CREATE_MINIGAME				32860
+#define ID_AI_HOME_LEVEL_1              33001
+#define ID_AI_HOME_LEVEL_2              33002
+#define ID_AI_HOME_LEVEL_3              33003
+#define ID_AI_AWAY_LEVEL_1              33011
+#define ID_AI_AWAY_LEVEL_2              33012
+#define ID_AI_AWAY_LEVEL_3              33013
+#define ID_STAGE_0                      34011
+#define ID_STAGE_1                      34012
+#define ID_STAGE_2                      34013
+#define ID_OPTION_REPLAYCHECK           34014
+#define ID_STAGE_5                      34015
+#define ID_OPTION_CHOOSE_NORMAL_BETWEEN_NORMAL_AND_RANK 34016
+#define ID_LOG_ALIVE_CHECK              34017
+#define ID_LOG_SHOT_CHECK               34018
+#define ID_SCENE_RANDOM                 34019
+#define ID_SCENE_1000                   34020
+#define ID_SCENE_1001                   34021
+#define ID_SCENE_1002                   34022
+#define ID_STAGE_100                    34023
+#define ID_LOCAL_TEST_FOR_CHINA         34024
+#define ID_STAGE_6                      34025
+#define IDC_STATIC                      -1
+
+// Next default values for new objects
+// 
+#ifdef APSTUDIO_INVOKED
+#ifndef APSTUDIO_READONLY_SYMBOLS
+#define _APS_NO_MFC                     1
+#define _APS_NEXT_RESOURCE_VALUE        129
+#define _APS_NEXT_COMMAND_VALUE         32849
+#define _APS_NEXT_CONTROL_VALUE         1000
+#define _APS_NEXT_SYMED_VALUE           110
+#endif
+#endif

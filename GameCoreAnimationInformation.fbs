@@ -1,0 +1,128 @@
+include "F4Packet.fbs";
+
+
+namespace TB;
+
+
+
+enum GAMEDATA : byte 
+{ 			
+	AnimData = 1,
+	BalanceData,
+	ShotSolutions 
+}
+
+enum WeightedMode : byte 
+{
+    None = 0,
+    //
+    // 요약:
+    //     Include inWeight when calculating the previous curve segment.
+    In = 1,
+    //
+    // 요약:
+    //     Include outWeight when calculating the next curve segment.
+    Out = 2,
+    //
+    // 요약:
+    //     Include inWeight and outWeight when calculating curve segments.
+    Both = 3 
+}
+	   
+struct TBKeyframe
+{
+    time        	: float; 
+    value       	: float; 
+    intangent   	: float; 
+    outtangent  	: float; 
+    inweight    	: float; 
+    outweight   	: float; 
+    weighted_mode	: WeightedMode;
+	//tangent_mode    : int;
+}
+
+table TBAnimationCurve
+{
+	keys:[TBKeyframe];
+}
+
+table TBVector3Curve
+{
+	x : TBAnimationCurve;
+	y : TBAnimationCurve;
+	z : TBAnimationCurve;
+}
+
+table TBQuaternionCurve
+{
+	x : TBAnimationCurve;
+	y : TBAnimationCurve;
+	z : TBAnimationCurve;
+	w : TBAnimationCurve;
+}
+
+table TBAnimEvent
+{
+    name 		: string;
+    key  		: string;
+    time 		: float;
+    
+}
+
+table TBAnimationInformation
+{
+	name						  : string;
+	curvepositiondummy001 		  : TBVector3Curve;
+    curverotationdummy001 		  : TBQuaternionCurve;
+    curvepositionball  			  : TBVector3Curve;
+    curverotationball 			  : TBQuaternionCurve;
+    curvepositionballpointfingerr : TBVector3Curve;
+    curvepositionballpointfingerl : TBVector3Curve;
+	curvepositionballpointr 	  : TBVector3Curve;
+	curvepositionballpointl 	  : TBVector3Curve;
+	curverotationballpointr		  :	TBQuaternionCurve;
+	curverotationballpointl       : TBQuaternionCurve;
+    eventlist					  : [TBAnimEvent];
+	length						  : float;
+}
+
+table TBAnimationInformationList
+{
+	datas						  : [TBAnimationInformation];
+}
+
+table F4Balance
+{
+	key 							: string;
+	value							: float;
+}
+
+table F4BalanceTable
+{
+	datas							: [F4Balance];
+}
+
+table F4SolutionTargetData
+{
+    contactpoint  					: Vector3Data; // 타겟으로 던진 공이 날아가서 맞튼 첫 위치 
+    targetposition					: Vector3Data; // 공을 던지는 타겟이 되는 위치( 에디터에서만 필요함 )
+    targetvelocity					: Vector3Data; // contact Velocity가 정확한 표현임
+    targetreachtime  				: float;// 컨택 포인트까지 가서 맞는데 걸린 시간 
+    elapsedgoalintime 				: float;// 컨택포인트 이후에 골인까지 걸리는 시간, 클린샷은 0 
+    elapsedreboundabletime			: float;	
+    eventname						: string; // 타겟위치의 속성 1. 백보드인가, 2. 골인지점, 3. 림인가
+}
+
+table F4SolutionSaveData
+{
+	throwtype		          	: F4PACKET.SHOT_THROW;
+    sectornum		          	: int;
+    boundtype		        	: F4PACKET.SHOT_BOUND;
+    index    		    	    : int;
+    targetdata 					: F4SolutionTargetData;
+}
+
+table F4SolutionSaveDataList
+{
+	datas						  	: [F4SolutionSaveData];
+}

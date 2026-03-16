@@ -1,0 +1,3573 @@
+include "Common.fbs";
+namespace F4PACKET;
+
+enum ACTION_TYPE : int
+{
+    action_none								= 0x0000,
+    action_type								= 0xff00,
+
+	action_alleyOopCut						= 0x0100,
+
+	action_alleyOopPass						= 0x0200,
+
+	action_alleyOopShot						= 0x0300,
+
+	action_autoMove							= 0x0400,
+    
+	action_block							= 0x0500,
+    
+	action_ceremony							= 0x0600,
+
+	action_collision						= 0x0700,
+
+	action_coupleCeremony					= 0x0800,
+	
+	action_crossOverPenetrate				= 0x0901,
+	action_crossOverPostUp					= 0x0902,
+	action_crossOverPenetrateBetweenTheLegs	= 0x0903,
+
+	action_cutIn							= 0x0a00,
+    
+	action_denyDefense						= 0x0b00,
+
+	action_emotion							= 0x0c00,
+	
+	action_fakeShot							= 0x0d00,
+	
+	action_handCheck						= 0x0e00,
+
+	action_hopStep							= 0x0f00,
+	
+	action_intercept						= 0x1000,
+
+	action_jumpBallTapOut					= 0x1100,
+
+    action_move								= 0x1200,
+    action_moveBoxOut						= 0x1201,
+    action_moveDefense						= 0x1202,
+	action_moveDoubleHandsUp				= 0x1203,
+    action_moveDribble						= 0x1204,
+	action_moveDenyDefense					= 0x1205,
+    action_moveFaceUp						= 0x1206,
+	action_moveHandsUp						= 0x1207,
+	action_moveIntercept					= 0x1208,
+	action_moveNormal						= 0x1209,
+    action_moveOffense						= 0x120a,
+    action_movePivot						= 0x120b,
+    action_movePostUp						= 0x120c,
+    action_moveReceive						= 0x120d,
+	action_moveWithBall						= 0x120e,
+    action_moveEnhancedBoxOut				= 0x120f,
+	
+	action_pass								= 0x1300,
+    
+    action_penetrate						= 0x1400,
+	action_penetratePostUp					= 0x1401,
+    
+    action_penetrateReady					= 0x1500,
+
+    action_postUpPenetrate					= 0x1600,
+
+    action_postUpReady						= 0x1700,
+
+    action_pick								= 0x1800,
+
+    action_pickAndMove						= 0x1900,
+
+	action_pickAndSlip						= 0x1a00,
+
+	action_postUpStepBack					= 0x1b00,
+
+    action_rebound							= 0x1c00,
+
+    action_receivePass						= 0x1d00,
+
+    action_screen							= 0x1e00,
+
+    action_shakeAndBake						= 0x1f00,
+
+	action_shot								= 0x2000,
+    action_shotDunk							= 0x2001,
+    action_shotJump							= 0x2002,
+    action_shotLayUp						= 0x2003,
+    action_shotPost							= 0x2004,	
+	
+	action_slideStep						= 0x2100,
+
+	action_slipAndSlide						= 0x2200,
+
+   	action_spinMove							= 0x2300,
+
+    action_stand							= 0x2400,
+    action_standBoxOut						= 0x2401,
+    action_standDefense						= 0x2402,
+	action_standDenyDefense					= 0x2403,
+	action_standDoubleHandsUp				= 0x2404,
+    action_standDribble						= 0x2405,
+    action_standFaceUp						= 0x2406,
+	action_standHandsUp						= 0x2407,
+	action_standIntercept					= 0x2408,
+	action_standJumpBall					= 0x2409,
+	action_standNormal						= 0x240a,
+    action_standOffense						= 0x240b,
+    action_standPivot						= 0x240c,
+    action_standPostUp						= 0x240d,
+    action_standReceive						= 0x240e,
+    action_standTripleThreat				= 0x240f,
+	action_standWait						= 0x2410,
+    action_standEnhancedBoxOut				= 0x2411,
+	
+    action_steal							= 0x2500,
+    action_stealPokeSteal					= 0x2510,
+    action_stealUpperCutSteal				= 0x2520,
+
+	action_stun								= 0x2600,
+
+	action_tapOut							= 0x2700,
+
+	action_tapPass							= 0x2800,
+
+	action_tipIn							= 0x2900,
+
+	action_closeOut							= 0x3000,
+
+	action_goAndCatch						= 0x3100,
+
+	action_hookHook							= 0x3200,
+
+	action_vCut								= 0x3300,
+
+	catchAndShot_Move						= 0x3400,
+
+	action_chaseContest						= 0x3500,
+
+	giveAndGo_Move							= 0x3600,
+
+	shammgod								= 0x3700,
+
+	passFake								= 0x3800,
+
+	oneDribblePullUpJumper_Move				= 0x3900,
+}
+
+enum BALL_STATE : int
+{
+	ballState_state				= 0xFFF0,
+	ballState_none				= 0x0000,
+	ballState_alleyOop			= 0x0010,
+	ballState_jump				= 0x0020,
+	ballState_loose				= 0x0030,
+	ballState_looseBlock		= 0x0031,
+	ballState_looseCollision	= 0x0032,
+	ballState_looseLay			= 0x0033,
+	ballState_loosePass			= 0x0034,
+	ballState_looseRebound		= 0x0035,
+	ballState_looseSteal		= 0x0036,
+	ballState_pass				= 0x0040,
+	ballState_passNormal		= 0x0041,
+	ballState_passBlock			= 0x0042,
+	ballState_passRebound		= 0x0043,
+	ballState_passLoose			= 0x0044,
+	ballState_pick				= 0x0050,
+	ballState_pickBlock			= 0x0051,
+	ballState_pickLoose			= 0x0052,
+	ballState_pickPass			= 0x0053,
+	ballState_pickRebound		= 0x0054,
+	ballState_pickSteal			= 0x0055,
+	ballState_ready				= 0x0060,
+	ballState_shot				= 0x0070,
+	ballState_shotDunk			= 0x0071,
+	ballState_shotJump			= 0x0072,
+	ballState_shotLayUp			= 0x0073,
+	ballState_shotPost			= 0x0074,
+}
+
+enum BURST_REQUEST : int
+{
+	burstRequest_passiveWang			= 0,
+	burstRequest_passiveMei				= 1,
+	burstRequest_passiveGola			= 2,
+	burstRequest_medalDefensiveLeader	= 3,
+	burstRequest_passiveDiego			= 4,
+	burstRequest_passiveWuko			= 5,
+	burstRequest_passiveJacky			= 6,
+	burstRequest_passiveHayato			= 7,
+	burstRequest_passiveSarang			= 8,
+	burstRequest_passiveAsami			= 9,
+	burstRequest_passiveKido			= 10,
+}
+
+enum ABILITY_TYPE : int
+{
+	abilityType_none				= 0,
+	abilityType_postShot			= 1,
+	abilityType_midRangeShot		= 2,
+	abilityType_threePointShot		= 3,
+	abilityType_dunk				= 4,
+	abilityType_layUp				= 5,
+	abilityType_pass				= 6,
+	abilityType_dribble				= 7,
+	abilityType_postDefense			= 8,
+	abilityType_perimeterDefense	= 9,
+	abilityType_block				= 10,
+	abilityType_rebound				= 11,
+	abilityType_steal				= 12,
+	abilityType_strength			= 13,
+	abilityType_vertical			= 14,
+	abilityType_speed				= 15,
+	abilityType_postMove			= 16,
+}
+
+enum CEREMONY_TYPE : int
+{
+	ceremonyType_none				= 0,
+    ceremonyType_custom1			= 1,
+    ceremonyType_custom2			= 2,
+    ceremonyType_custom3			= 3,
+	ceremonyType_couple				= 4,
+    ceremonyType_mvp				= 9,
+    ceremonyType_highfivewithHome	= 12,
+    ceremonyType_highfivewithAway	= 13,
+    ceremonyType_touchJukebox		= 101,
+    ceremonyType_touchWaterBottle	= 102,
+    ceremonyType_ownerWin			= 201,
+    ceremonyType_ownerLose			= 202,
+    ceremonyType_ownerDraw			= 203,
+    ceremonyType_normalWin			= 211,
+    ceremonyType_normalLose			= 212,
+    ceremonyType_normalDraw			= 213,
+	ceremonyType_buzzerWin			= 221,
+	ceremonyType_buzzerLose			= 222,
+}
+
+enum CHALLENGE_MESSAGE : int
+{
+	None									= 0,
+	challengeMessage_None					= 1,
+	challengeMessage_2pt					= 2,
+	challengeMessage_2ptFadeAway			= 3,
+	challengeMessage_3pt					= 4,
+	challengeMessage_3ptFadeAway			= 5,
+	challengeMessage_BadShot				= 6,
+	challengeMessage_GoodShot				= 7,
+	challengeMessage_GreatShot				= 9,
+	challengeMessage_MidRangeShot			= 10,
+	challengeMessage_SpotUpJumpShot			= 11,
+	challengeMessage_SpotUpThreePointShot	= 12,
+	challengeMessage_ThreePointShot			= 13,
+	challengeMessage_BadRebound				= 14,
+	challengeMessage_GoodRebound			= 15,
+	challengeMessage_GreatRebound			= 16,
+	challengeMessage_Fail					= 17,
+	challengeMessage_BadDefense				= 18,
+	challengeMessage_GoodDefense			= 19,
+	challengeMessage_GreatDefense			= 20,
+	challengeMessage_DefenseSuccess			= 21,
+	challengeMessage_Block					= 22,
+}
+
+enum CHAT_TYPE : int
+{
+	None									= -1,
+	all										= 0,
+	team									= 1,
+	macro									= 2,
+}
+
+enum COLLISION_TYPE:int
+{
+	none					= 0,
+	dribbleFall				= 11,
+	dribbleFumble			= 12,
+	dribbleKnockback		= 13,
+	dribblePivot			= 14,
+	normalFall				= 21,
+	normalKnockback			= 22,
+	defense					= 30,
+	defenseEvade			= 31,
+	postUpDefDraw			= 41,
+	postUpDefLose			= 42,
+	postUpDefWin			= 43,
+	postUpOwnDraw			= 44,
+	postUpOwnLose			= 45,
+	postUpOwnWin			= 46,
+	screen					= 50,
+	screenFail				= 51,
+}
+
+enum STEAL_TYPE:int
+{
+	none					= 0,
+	fail					= 10,
+	manace					= 20,
+	looseBall				= 30,
+	pickBall				= 40,
+	pass					= 50,
+}
+
+enum EGAME_MODE:int
+{
+	eGameMode_none							= 0,
+	eGameMode_three_on_three				= 1,
+	eGameMode_two_on_two					= 2,
+	eGameMode_one_on_one					= 3,
+	eGameMode_ai							= 4,
+	eGameMode_training						= 5,
+	eGameMode_challenge_off_ball_move		= 6,
+	eGameMode_challenge_rebound				= 7,
+	eGameMode_challenge_pass				= 8,
+	eGameMode_challenge_jump_shot_block		= 9,
+	eGameMode_custom						= 10,
+	eGameMode_trio							= 11,
+	eGameMode_continuous					= 12,
+	eGameMode_tutorial_basic				= 13,
+	eGameMode_tutorial_pass					= 14,
+	eGameMode_tutorial_steal				= 15,
+	eGameMode_tutorial_divingCatch			= 16,
+	eGameMode_tutorial_jumpShot				= 17,
+	eGameMode_tutorial_rimAttack			= 18,
+	eGameMode_tutorial_jumpShotBlock		= 19,
+	eGameMode_tutorial_rebound				= 20,
+	eGameMode_tutorial_rimAttackBlock		= 21,
+	eGameMode_tutorial_boxout				= 22,
+	eGameMode_tutorial_penetrate			= 23,
+	eGameMode_tutorial_shootingDisturb		= 24,
+
+	eGameMode_training_rebound				= 25,
+	eGameMode_training_jumpshotBlock		= 26,
+	eGameMode_training_rimAttackBlock		= 27,
+	eGameMode_training_offBallMove			= 28,
+}
+
+enum MOVE_MODE:ubyte
+{
+	boxOut							= 0,
+	defense							= 1,
+	dribble							= 2,
+	denyDefense						= 3,
+	doubleHandsUp					= 4,
+	faceUp							= 5,
+	handsUp							= 6,
+	intercept						= 8,
+	jumpBall						= 9,
+	normal							= 10,
+	offense							= 11,
+	pivot							= 13,
+	postUp							= 14,
+	receive							= 16,
+	receiveBad						= 17,
+	tripleThreat					= 19,
+	enhancedBoxOut					= 20,
+}
+
+enum CHARACTER_PASSIVE_TYPE:int
+{
+	none					= 0,
+	shot					= 1,
+	rimAttack				= 2,
+	pass					= 3,
+	dribble					= 4,
+	defensePerimeter		= 5,
+	defensePost				= 6,
+	rebound					= 7,
+}
+
+enum CHARACTER_PASSIVE_EFFECT:int
+{
+	none						= 0,
+	ankleBreakRate				= 1,
+	defense_blockSuccessRate	= 2,
+	hindrance_perimeter			= 3,
+	move_speed					= 4,
+	move_speedDefense			= 5,
+	nicePass_ratePasser			= 6,
+	nicePass_rateReceiver		= 7,
+	rebound_ability				= 8,
+	powerRebound_Radius			= 9,
+	blockResistance_dunk		= 10,
+	blockResistance_layUp		= 11,
+	rimAttack_dunkRate			= 12,
+	shot_successRateMiddle		= 13,
+	shot_successRateThree		= 14,
+	shot_successRateJumpShot	= 15,
+	shot_IgnoreLeapSpace		= 16,           // 림어택 도약공간 조건 무시
+	rimAttack_tapDunk			= 17,
+	interceptRate				= 18,
+	stealRate					= 19,
+	flashpassActivateRate		= 20,
+	shotCancelRequested_Ivan	= 21,       // shotfake가 가능하다면 키 입력 무시하고 캔슬
+}
+
+enum PACKET_ID:int
+{
+	packetID_none									= 0,
+
+	system_c2c_loadingPercentage					= 1,
+
+	system_s2c_arrange								= 11,
+	system_c2s_arrangeReady							= 12,
+	system_c2s_chat									= 13,
+	system_s2c_chat									= 14,
+	system_s2c_challengeInfo						= 15,
+	system_s2c_challengeStart						= 16,
+	system_s2c_count								= 17,
+	system_s2c_end									= 18,
+	system_s2c_goal									= 19,
+	system_s2c_goalFail								= 20,
+	system_s2c_jumpBall								= 21,
+	system_c2s_loadComplete							= 22,
+	system_c2s_login								= 23,
+	system_s2c_login								= 24,
+	system_s2c_manOfWatch							= 25,
+	system_c2c_ping									= 26,
+	system_s2c_play									= 27,
+	system_s2c_playerInfo							= 28,
+	system_c2s_readyToChallenge						= 29,
+	system_s2c_readyToJumpBall						= 30,
+	system_c2s_readyToLoad							= 31,
+	system_s2c_readyToLineUp						= 32,
+	system_s2c_readyToPlay							= 33,
+	system_s2c_replayStart							= 34,
+	system_s2c_reconnectEnter						= 35,
+	system_s2c_result								= 36,
+	system_s2c_sceneEnter							= 37,
+	system_c2s_sceneEnd								= 38,
+	system_s2c_startLoad							= 39,
+	system_s2c_timeGame								= 40,
+	system_s2c_timeShot								= 41,
+	system_s2c_trainingStart						= 42,
+	system_c2s_exitGame								= 43,
+	system_s2c_tutorialStart						= 44,
+	system_s2c_tutorialInfo							= 45,
+	system_c2s_readyToTutorial						= 46,
+	system_c2s_tutorialResult						= 47,
+	system_s2c_tutorialResult						= 48,
+	system_s2c_shotClockViolation					= 49,
+	
+	system_s2c_changeOfControl						= 50,	// 특정 유저에게 제어권을 넘긴다
+
+	system_s2c_kickToTheLobby						= 51,	// 네트워크 불량 등의 이유로 로비로 쫓아낸다.
+	system_s2c_awayFromKeyboard						= 52,	// 자리비움으로 ai 전환하라고 알려준다
+	system_c2s_awayFromKeyboard						= 53,	// 유저가 복귀가 복귀했다고 알려준다.
+
+	system_c2s_useJoystick							= 54,	// 조이스틱을 사용했을 경우
+
+	system_s2c_trainingInfo							= 55,
+	system_c2s_readyToTraining						= 56,
+
+	system_s2c_surrenderActivation					= 57,	// 기권하기 활성화/비활성화
+	system_c2s_surrenderVote						= 58,	// 기권하기 투표
+	system_s2c_surrenderVote						= 59,	// 기권하기 투표
+
+	// 게임 스코어 정보 (재접속시)
+	system_s2c_reconnectGameScore					= 60,
+	system_s2c_reconnectGameRecord					= 61,
+	system_s2c_reconnectCharacterLastActionInfo		= 62,
+
+	system_s2c_observerUserCountInfo				= 63,
+
+	system_c2s_devGameTime							= 80,	// 전달된 패킷으로 게임시간 바꾼다.
+	system_s2c_debugString							= 90,	// 서버에서 전달한 스트링을 클라 화면에 뿌린다.
+	system_s2c_devBurstGauge						= 91,	// 캐릭터의 버스트 케이지를 클라에 전달 (개발 확인용)
+	system_s2c_devRegistSkill						= 92,
+
+	play_c2s_ballClear								= 101,
+	play_s2c_ballClear								= 102,
+	play_c2s_ballLerp								= 103,
+	play_s2c_ballLerp								= 104,
+	play_c2s_ballSimulation							= 105,
+	play_s2c_ballSimulation							= 106,
+	play_c2s_ballShot								= 107,
+	play_s2c_ballShot								= 108,
+
+	play_s2c_environmentPigeon						= 121,
+	play_c2s_environmentCat							= 122,
+	play_s2c_environmentCat							= 123,
+	play_s2c_onFireModeInfo							= 124,
+	play_c2s_onFireModeInfo							= 125,
+	
+	
+	play_c2s_playerAlleyOopCut						= 201,
+	play_s2c_playerAlleyOopCut						= 202,
+	play_c2s_playerAlleyOopPass						= 203,
+	play_s2c_playerAlleyOopPass						= 204,
+	play_c2s_playerAlleyOopShot						= 205,
+	play_s2c_playerAlleyOopShot						= 206,
+	play_c2s_playerBlock							= 207,
+	play_s2c_playerBlock							= 208,
+	play_c2s_playerBuff								= 209,
+	play_s2c_playerBuff								= 210,
+	play_c2s_playerCeremony							= 211,
+	play_s2c_playerCeremony							= 212,
+	play_c2s_playerCeremonyEnd						= 213,
+	play_s2c_playerCeremonyEnd						= 214,
+	play_c2s_playerCollision						= 215,
+	play_s2c_playerCollision						= 216,
+	play_c2s_playerCoupleCeremony					= 217,
+	play_s2c_playerCoupleCeremony					= 218,
+	play_c2s_playerCrossOver						= 219,
+	play_s2c_playerCrossOver						= 220,
+	play_c2s_playerCutIn							= 221,
+	play_s2c_playerCutIn							= 222,
+	play_c2s_playerDenyDefense						= 223,
+	play_s2c_playerDenyDefense						= 224,
+	play_c2s_playerDoubleClutch						= 225,
+	play_s2c_playerDoubleClutch						= 226,
+	play_c2s_playerFakeShot							= 227,
+	play_s2c_playerFakeShot							= 228,
+	play_c2s_playerHandCheck						= 229,
+	play_s2c_playerHandCheck						= 230,
+	play_c2s_playerHit								= 231,
+	play_s2c_playerHit								= 232,
+	play_c2s_playerHopStep							= 233,
+	play_s2c_playerHopStep							= 234,
+	play_c2s_playerIntercept						= 235,
+	play_s2c_playerIntercept						= 236,
+	play_c2s_playerJumpBallTapOut					= 237,
+	play_s2c_playerJumpBallTapOut					= 238,
+	play_c2s_playerModificationAbility				= 239,
+	play_s2c_playerModificationAbility				= 240,
+	play_c2s_playerMove								= 241,
+	play_s2c_playerMove								= 242,
+	play_c2s_playerPass								= 243,
+	play_s2c_playerPass								= 244,
+	play_c2s_playerPassive							= 245,
+	play_s2c_playerPassive							= 246,
+	play_c2s_playerPenetrate						= 247,
+	play_s2c_playerPenetrate						= 248,
+	play_c2s_playerPenetrateCut						= 249,
+	play_s2c_playerPenetrateCut						= 250,
+	play_c2s_playerPenetratePostUp					= 251,
+	play_s2c_playerPenetratePostUp					= 252,
+	play_c2s_playerPenetrateReady					= 253,
+	play_s2c_playerPenetrateReady					= 254,
+	play_c2s_playerPick								= 255,
+	play_s2c_playerPick								= 256,
+	play_c2s_playerPickAndMove						= 257,
+	play_s2c_playerPickAndMove						= 258,
+	play_c2s_playerPickAndSlip						= 259,
+	play_s2c_playerPickAndSlip						= 260,
+	play_c2s_playerPositionCorrect					= 261,
+	play_s2c_playerPositionCorrect					= 262,
+	play_c2s_playerPostUpCollision					= 263,
+	play_s2c_playerPostUpCollision					= 264,
+	play_c2s_playerPostUpPenetrate					= 265,
+	play_s2c_playerPostUpPenetrate					= 266,
+	play_c2s_playerPostUpReady						= 267,
+	play_s2c_playerPostUpReady						= 268,
+	play_c2s_playerPostUpStepBack					= 269,
+	play_s2c_playerPostUpStepBack					= 270,
+	play_c2s_playerRebound							= 271,
+	play_s2c_playerRebound							= 272,
+	play_c2s_playerReceivePass						= 273,
+	play_s2c_playerReceivePass						= 274,
+	play_c2s_playerScreen							= 275,
+	play_s2c_playerScreen							= 276,
+	play_c2s_playerShakeAndBake						= 277,
+	play_s2c_playerShakeAndBake						= 278,
+	play_c2s_playerShot								= 279,
+	play_s2c_playerShot								= 280,
+	play_c2s_playerSlideStep						= 281,
+	play_s2c_playerSlideStep						= 282,
+	play_c2s_playerSpeaking							= 283,
+	play_s2c_playerSpeaking							= 284,
+	play_c2s_playerSpinMove							= 285,
+	play_s2c_playerSpinMove							= 286,
+	play_c2s_playerSlipAndSlide						= 287,
+	play_s2c_playerSlipAndSlide						= 288,
+	play_c2s_playerStand							= 289,
+	play_s2c_playerStand							= 290,
+	play_c2s_playerSteal							= 291,
+	play_s2c_playerSteal							= 292,
+	play_c2s_playerStealFail						= 293,
+	play_s2c_playerStealFail						= 294,
+	play_c2s_playerStop								= 295,
+	play_s2c_playerStop								= 296,
+	play_c2s_playerStun								= 297,
+	play_s2c_playerStun								= 298,
+	play_c2s_playerTapOut							= 299,
+	play_s2c_playerTapOut							= 300,
+	play_c2s_playerTapPass							= 301,
+	play_s2c_playerTapPass							= 302,
+	play_c2s_playerTipIn							= 303,
+	play_s2c_playerTipIn							= 304,
+	play_c2s_playerEmotion							= 305,
+	play_s2c_playerEmotion							= 306,
+	play_c2s_playerSwitchActive						= 307,
+	play_s2c_playerSwitchActive						= 308,
+	play_c2s_playerSwitchRequest					= 309,
+	play_s2c_playerSwitchRequest					= 310,
+	play_c2s_playerSwitchResponse					= 311,
+	play_s2c_playerSwitchResponse					= 312,
+	play_c2s_playerEmoji							= 313,
+	play_s2c_playerEmoji							= 314,
+	play_c2s_playerCloseOut							= 315,
+	play_s2c_playerCloseOut							= 316,
+	play_c2s_playerGoAndCatch						= 317,
+	play_s2c_playerGoAndCatch						= 318,
+	play_c2s_playerHookHook							= 319,
+	play_s2c_playerHookHook							= 320,
+	play_c2s_playerVCut								= 321,
+	play_s2c_playerVCut								= 322,
+	play_c2s_playerIllegalScreen					= 323,
+	play_s2c_playerIllegalScreen					= 324,
+	play_c2s_playerCatchAndShotMove					= 325,
+	play_s2c_playerCatchAndShotMove					= 326,
+	play_c2s_playerInYourFace						= 327,
+	play_s2c_playerInYourFace						= 328,
+	play_c2s_playerChaseContest						= 329,
+	play_s2c_playerChaseContest						= 330,
+	play_c2s_playerGiveAndGoMove					= 331,
+	play_s2c_playerGiveAndGoMove					= 332,
+	play_c2s_playerShammgod							= 333,
+	play_s2c_playerShammgod							= 334,
+	play_c2s_playerPassFake							= 335,
+	play_s2c_playerPassFake							= 336,
+	play_c2s_playerStunIntercept					= 337,
+	play_s2c_playerStunIntercept					= 338,
+	play_c2s_playerOneDribblePullUpJumperMove		= 339,
+	play_s2c_playerOneDribblePullUpJumperMove		= 340,
+
+	// Passive Activation
+	play_c2s_playerBurstRequest						= 500,
+	
+	// UI
+	play_c2s_uiDisplayMedal							= 801,
+	play_s2c_uiDisplayMedal							= 802,
+	
+	// Challenge
+	challenge_s2c_point								= 901,
+	challenge_s2c_result							= 902,
+	challenge_s2c_setTarget							= 903,
+	challenge_s2c_start								= 904,
+	challenge_s2c_stop								= 905,
+	challenge_c2s_retry								= 906,
+	challenge_s2c_retry								= 907,
+
+	// 기록 관련 패킷
+	play_s2c_gameRecord								= 911,
+	play_c2s_greatDefense							= 912,
+	
+	//! LocalHost 에서 사용할 PacketID 정의 - by thinkingpig
+	local_system_c2s_login							= 1012,
+	local_system_s2c_login							= 1013,
+	local_system_s2c_loginTeamInfo					= 1014,
+	local_system_s2c_playerInfo						= 1022,
+	local_system_c2s_mixPlayer						= 1023,
+	local_system_s2c_mixPlayer						= 1024,
+	local_system_s2c_roomInfo						= 1025,
+	//! End
+
+	//! 클라에서 해킹감지했을 때 보내는 패킷
+	system_c2s_blackBox								= 20000,
+
+	//! 클라가 살아있는지 확인하는 패킷
+	system_s2s_clientAliveCheck						= 30000,
+
+	//! 테스트 패킷
+	system_c2s_test									= 40000,
+	system_s2c_test									= 40001,
+}
+
+enum PASS_TYPE:byte
+{
+	arrangeBound					= 0,
+	arrangeToss						= 1,
+	divingCatch						= 2,
+	flash							= 3,
+	normalCommon					= 4,
+	normalGood						= 5,
+	overBad							= 6,
+	overCommon						= 7,
+	overGood						= 8,
+	shootJumpBad					= 9,
+	shootJumpCommon					= 10,
+	shootLayUpBad					= 11,
+	shootLayUpCommon				= 12,
+	bullet							= 13,
+	handOffFaceUp					= 14,
+	handOffPostUp					= 15,
+	skipPass						= 16,
+	shootHookBad					= 17,
+	shootHookCommon					= 18,
+}
+
+enum BB_STATE:byte //Backboard State
+{
+	firstState						= 0,
+	secondState                     = 1,
+	thirdState                      = 2,
+	forthState                      = 3,
+	fifthState                      = 4,
+	brokenState                     = 5,
+}
+
+enum PENETRATE_DIRECTION:byte
+{
+	none							= 0,
+	penetrateDirection_cut			= 1,
+	penetrateDirection_left			= 2,
+	penetrateDirection_right		= 3,
+	penetrateDirection_back			= 4,
+
+	
+	forward_left					= 5,
+	forward_right					= 6,
+	sideward_left					= 7,
+	sideward_right					= 8,
+}
+
+enum PLAYER_SCRIPT:byte
+{
+	playerScript_none				= 0,
+	playerScript_passMe				= 1,
+	playerScript_goodJob			= 2,
+	playerScript_thanks				= 3,
+	playerScript_sorry				= 4,
+	playerScript_neverMind			= 5,
+	playerScript_nicePass			= 6,
+	playerScript_myBall				= 7,
+	playerScript_coupleCeremony		= 8,
+}
+
+enum RESULT:byte
+{
+	success							= 0,
+	fail							= 1,
+}
+
+enum LOGIN_TYPE:byte
+{
+	none							= 0,
+	normal							= 1,
+	reconnect						= 2,
+}
+
+enum EXIT_TYPE:byte
+{
+	none									= 0,
+	login									= 1,
+	lobby									= 2,
+}
+
+enum ROLE:byte
+{
+	role_center						= 0,
+	role_foward_power				= 1,
+	role_foward_small				= 2,
+	role_guard_shooting				= 3,
+	role_guard_point				= 4,
+}
+
+enum SHOT_BOUND:byte
+{ 
+	success_clean					= 0,
+	success_rim_bound				= 1,
+	success_rim_multi_bound			= 2,
+	fail_forward_weak_bound			= 3,
+	fail_forward_strong_bound		= 4,
+	fail_backward_weak_bound		= 5,
+	fail_backward_strong_bound		= 6,
+	fail_rim_multi_bound			= 7,
+}
+
+enum SHOT_THROW:byte
+{
+	low								= 0,
+	middle							= 1,
+	high							= 2,
+}
+
+enum SHOT_TYPE:byte
+{
+	shotType_none					= 0,
+	shotType_closePostUnstready		= 1,
+	shotType_dunkDriveIn			= 2,
+	shotType_dunkFingerRoll			= 3,
+	shotType_dunkPost				= 4,
+	shotType_hook					= 5,
+	shotType_layUpDriveIn			= 6,
+	shotType_layUpFingerRoll		= 7,
+	shotType_layUpPost				= 8,
+	shotType_middle					= 9,
+	shotType_middleUnstready		= 10,
+	shotType_threePoint				= 11,
+	shotType_post					= 12,
+	shotType_postUnstready			= 13,
+}
+
+enum POST_GOAL_SCENE_TYPE:byte
+{
+	postGoalSceneType_normal				= 0,	//  주목할선수가 없는 일반 씬
+	postGoalSceneType_solo					= 1,	//  주목할선수가 한명 있는 씬
+	postGoalSceneType_duo					= 2,	//  주목할선수가 두명 있는 씬
+}
+
+enum SKILL_INDEX : uint
+{
+	skill_none						= 0,
+
+	skill_doubleCluch				= 110020,
+											
+	skill_spotUpShot				= 110030,
+											
+	skill_spotUpShot3				= 110040,
+											
+	skill_fadeAway					= 110050,
+	skill_fadeAway3					= 110051,
+											
+	skill_hookShot					= 110060,
+	skill_hookShotSky				= 110061,
+											
+	skill_hookShotPost				= 110070,
+	skill_hookShotPostSky			= 110071,
+											
+	skill_pullUpJumper				= 110080,
+											
+	skill_stepBackJumper			= 110090,
+											
+	skill_reverseLayUp				= 110100,
+	skill_reverseDunk				= 110101,
+	skill_turnAroundFadeAway		= 110110,
+	skill_oneLegedFadeAway			= 110120,
+	skill_selfAlleyOop				= 110130,
+	skill_aimShot					= 110140,
+	skill_jellyLayUp				= 110150,
+	skill_runner					= 110160,
+	skill_turningShot				= 110170,
+	skill_closeReverseLayUp			= 110180,
+	skill_closeReverseDunk			= 110181,
+	skill_putback					= 110190,
+	skill_popUpDunk					= 110200,
+	skill_scoopShot					= 110210,
+	skill_rainbowShot				= 110220,
+	skill_floater					= 110230,
+	skill_stepBackThreePointShot	= 110240,
+	skill_euroStepLayUp				= 110250,
+	euroStepDunk					= 110251,
+	skill_kneeKick					= 110260,
+	catchAndShot					= 110270,
+	jumpHook						= 110280,
+	inYourFace						= 110290,
+	quickLayUp						= 110300,
+	tomahawkDunk					= 110310,
+	oneDribblePullUpJumper			= 110320,
+											
+	skill_layUpPass					= 120020,
+											
+	skill_jumpShotPass				= 120030,
+											
+	skill_postUpPass				= 120040,
+	skill_noneStopPass				= 120050,
+	skill_penetratePass				= 120060,
+	skill_alleyOopPass				= 120070,
+	skill_alleyOopLayUpPass			= 120080,
+	skill_bulletPass				= 120090,
+	skill_handOff					= 120100,
+	skill_skipPass					= 120110,
+	skill_hookShotPass				= 120120,
+	skill_jumpingPass				= 120130,
+	skill_lobPass					= 120140,
+	skill_backDoorCutPass			= 120150,
+	passFake						= 120160,
+											
+	skill_hopStep					= 130010,
+	skill_penetrateFake				= 130020,
+	dancingDribble					= 130021,
+	skill_stepBack					= 130030,
+	skill_postUpPenetrate			= 130040,
+	skill_postUpSpin				= 130041,
+	skill_penetrateStepBack			= 130050,
+	skill_shoulderFake				= 130060,
+	skill_shakeAndBake				= 130070,
+	skill_postUpStepBack			= 130080,
+	skill_penetratePostUp			= 130090,
+	skill_penetrateSideStep			= 130100,
+	skill_spinMove					= 130110,
+	skill_penetrateBetweenTheLegs	= 130120,
+	skill_slipAndSlide				= 130150,
+	shammgod						= 130160,
+	spinningPullBack				= 130170,
+
+											
+	skill_blockCatch				= 140010,
+	skill_blockCatchDunk			= 140011,
+											
+	skill_slideStep					= 140020,
+	skill_handsUp					= 140030,
+	skill_quickSteal				= 140040,
+	skill_powerBlock				= 140050,
+											
+	skill_chasedownBlock			= 140060,
+	skill_chasedownCatch			= 140061,
+	skill_blockPass					= 140070,
+	skill_intercept					= 140080,
+	skill_stretchBlock				= 140090,
+	skill_upperCutSteal				= 140100,
+	skill_denyDefense				= 140110,
+	skill_doubleHandsUp				= 140120,
+	skill_closeOut					= 140130,
+	skill_hookHook					= 140140,
+	skill_snatchBlock				= 140150,
+	skill_pokeSteal					= 140160,
+	chaseContest					= 140170,
+											
+	skill_boxOut					= 150010,
+	enhancedBoxOut					= 150011,
+	skill_divingCatch				= 150020,
+	skill_divingCatchPass			= 150021,
+	skill_tapOut					= 150030,
+	skill_powerRebound				= 150040,
+	skill_tipIn						= 150050,
+	skill_tapDunk					= 150051,
+	skill_tapPass					= 150060,
+	skill_cutIn						= 150070,
+	skill_pickAndMove				= 150080,
+	skill_goAndCatch				= 150090,
+	skill_popUpCatch				= 150100,
+	vCut							= 150110,
+	giveAndGo						= 150120,
+}
+
+enum STUN_TYPE:byte
+{
+	None								= 0,
+	stunType_ankleBreakStrong			= 1,
+    stunType_ankleBreakWeak				= 2,
+	stunType_blockDunk					= 3,
+    stunType_blockLayUp					= 4,
+    stunType_dunk						= 5,
+    stunType_holdBall					= 6,
+    stunType_layUp						= 7,
+    stunType_missBall					= 8,
+	stunType_upperCutSteal				= 9,
+	stunType_rebound					= 10,
+	stunType_pokeSteal					= 11,
+	stunType_Intercept					= 12,
+}
+
+enum MEDAL_INDEX:int
+{
+	none								= 0,
+	medal_wideOpen						= 21001,
+	medal_commander						= 21002,
+	medal_cornerShooter					= 21003,
+	medal_dunkContest					= 21004,
+	medal_flyHigh						= 21005,
+	medal_midRangeMaster				= 21006,
+	medal_longRange						= 21007,
+	medal_quickness						= 21008,
+	medal_longRangeHook					= 21009,
+	medal_alleyOopPasser				= 21010,
+	medal_putBackAttackerDunk			= 21011,
+	medal_putBackAttackerLayUp			= 21012,
+	medal_kickOutPasser					= 21013,
+	medal_entryPasser					= 21014,
+	medal_controlTower					= 21015,
+	medal_quickCounterAttack			= 21016,
+	medal_passOfFaith					= 21017,
+	medal_toughShotMania				= 21018,
+	medal_sensitiveShooter				= 21019,
+	medal_explosiveOrdnanceDisposal		= 21020,
+	medal_ankleBreaker					= 21021,
+	medal_hotStartShoot					= 21022,
+	medal_hotStartPass					= 21023,
+	medal_competitiveSpiritShoot		= 21024,
+	medal_competitiveSpiritPass			= 21025,
+	medal_clutchPlayerShoot				= 21026,
+	medal_clutchPlayerPass				= 21027,
+	medal_stableFinishShoot				= 21028,
+	medal_stableFinishPass				= 21029,
+	medal_overTimeRulerShoot			= 21030,
+	medal_overTimeRulerPass				= 21031,
+	medal_hustlePlayShoot				= 21032,
+	medal_hustlePlayPass				= 21033,
+	medal_fadeAwayMaster				= 21034,
+	medal_hookShotMaster				= 21035,
+	medal_spotUpShooter					= 21036,
+	medal_rhythmShooter					= 21037,
+	medal_delicateTouch					= 21038,
+	medal_showTimePass					= 21039,
+	medal_acrobaticPass					= 21040,
+	medal_nonStopPass					= 21041,
+	medal_longAlleyOop					= 21042,
+	medal_alleyOopFinisher				= 21043,
+	medal_stableFootWork				= 21044,
+	medal_hopStepFinisher				= 21045,
+	medal_fancyBaker					= 21046,
+	medal_aerialAcrobat					= 21047,
+	medal_leftHandedWizard				= 21048,
+	medal_rightHandedWizard				= 21049,
+	medal_longSelfAlleyOop				= 21050,
+	medal_acrobaticCommander			= 21051,
+	medal_flashPass						= 21052,
+	medal_penetratePass					= 21053,
+	medal_strongBulletPass				= 21054,
+	medal_delicateBulletPass			= 21055,
+	medal_handOff						= 21056,
+	medal_spinMoveFinisher				= 21057,
+	medal_earlyOffenseShooting			= 21058,
+	medal_earlyOffensePass				= 21059,
+	medal_mismatchChefShooting			= 21060,
+	medal_mismatchChefRimAttack			= 21061,
+	medal_mismatchChefDribble			= 21062,
+	medal_runner						= 21063,
+
+	medal_pickPoket						= 22001,
+	medal_energeticDefender				= 22002,
+	medal_intercepter					= 22003,
+	medal_spiderHands					= 22004,
+	medal_stableDefense					= 22005,
+	medal_hotStartBlock					= 22006,
+	medal_hotStartSteal					= 22007,
+	medal_competitiveSpiritBlock		= 22008,
+	medal_competitiveSpiritSteal		= 22009,
+	medal_clutchPlayerBlock				= 22010,
+	medal_clutchPlayerSteal				= 22011,
+	medal_stableFinishBlock				= 22012,
+	medal_stableFinishSteal				= 22013,
+	medal_overTimeRulerBlock			= 22014,
+	medal_overTimeRulerSteal			= 22015,
+	medal_goldenGlove					= 22016,
+	medal_shadowBlockProbability		= 22017,
+	medal_shadowBlockAngle				= 22018,
+	medal_shadowBlockDistance			= 22019,
+	medal_shadowCatch					= 22020,
+	medal_bigThief						= 22021,
+	medal_spiker						= 22022,
+	medal_spikeBlock					= 22023,
+	medal_stretchBlock					= 22024,
+	medal_upperCut						= 22025,
+	medal_denyDefense					= 22026,
+	medal_rimProtector					= 22027,
+	
+	medal_blueWorker					= 23001,
+	medal_safetyFirst					= 23002,
+	medal_dodger						= 23003,
+	medal_skillfulDribbler				= 23004,
+	medal_skillfulPostUp				= 23005,
+	medal_fortitudePost					= 23006,
+	medal_fortitudeMid					= 23007,
+	medal_fortitudeLayUp				= 23008,
+	medal_fortitudeDunk					= 23009,
+	medal_fortitudeThreePoint			= 23010,
+	medal_goodScreener					= 23011,
+	medal_pickAndRollerDunk				= 23012,
+	medal_pickAndRollerLayUp			= 23013,
+	medal_pickAndRollerReceive			= 23014,
+	medal_pickAndPoperShoot				= 23015,
+	medal_pickAndPoperReceive			= 23016,
+	medal_pickAndRollMaestro			= 23017,
+	medal_twoBigGameBallHandler			= 23018,
+	medal_twoBigGameScorer				= 23019,
+	medal_twoBigGameBigman				= 23020,
+	medal_twoGuardGameBallHandler		= 23021,
+	medal_twoGuardGameScorer			= 23022,
+	medal_twoGuardGameBigman			= 23023,
+	medal_twoForwardGameBallHandler		= 23024,
+	medal_twoForwardGameScorer			= 23025,
+	medal_twoForwardGameBigman			= 23026,
+	medal_postCleaner					= 23027,
+	medal_goodDivingDistance			= 23028,
+	medal_goodDivingHeight				= 23029,
+	medal_passionRebounderProbability	= 23030,
+	medal_passionRebounderDistance		= 23031,
+	medal_passionRebounderHeight		= 23032,
+	medal_sweepDistance					= 23033,
+	medal_sweepHeight					= 23034,
+	medal_tapDistance					= 23035,
+	medal_tapHeight						= 23036,
+	medal_tapProbability				= 23037,
+	medal_perfectPutback				= 23038,
+
+
+	quickness				= 30001,
+	energeticDefender1		= 30002,
+	energeticDefender2		= 30003,
+	nicePasser1				= 30004,
+	nicePasser2				= 30005,
+	accuratePass			= 30006,
+	safetyFirst				= 30007,
+	acrobaticPass			= 30008,
+	offTheBallMove			= 30009,
+
+	skillfulDribbler		= 30010,
+	dunkContest				= 30011,
+	agileMovement			= 30012,
+	fadeAwayMaster			= 30013,
+	defensiveLeader			= 30014,
+	stableDefense			= 30015,
+	awlPass					= 30016,
+	faceUpEnhance			= 30017,
+	dodger					= 30018,
+	glueHand				= 30019,
+
+	shadowBlock				= 30020,
+	airWalk					= 30021,
+	postCleaner				= 30022,
+	quickRestoration		= 30023,
+	layUpTechnician			= 30024,
+	intimidatoryPresence	= 30025,
+	sensitiveShooter		= 30026,
+	pickPoket				= 30027,
+	clawHand				= 30028,
+	midRangeMaster			= 30029,
+
+	intercepter				= 30030,
+	clutchScorer			= 30031,
+	longRange				= 30032,
+	ankleBreaker			= 30033,
+	spotUpShooter			= 30034,
+	smoothSnap				= 30035,
+	fortitude				= 30036,
+	defensiveAllRounder1	= 30037,
+	defensiveAllRounder2	= 30038,
+	scoopShotMaster			= 30039,
+
+	highlightFilm			= 30040,
+	reliableDefender1		= 30041,
+	reliableDefender2		= 30042,
+	springRebound			= 30043,
+	commander				= 30044,
+	diver					= 30045,
+	lockDownDefender		= 30046,
+	bigThief				= 30047,
+	wideOpen				= 30048,
+	cornerShooter			= 30049,
+
+	flyHigh					= 30050,
+	scoreSupport			= 30051,
+	toughShotMania			= 30052,
+	dancerOnTheCourt		= 30053,
+	delicateTouch			= 30054,
+	recoveryDefender		= 30055,
+	aerialAcrobat			= 30056,
+	paintZoneRuler			= 30057,
+	passionateRebounder		= 30058,
+	almightyDefender		= 30059,
+
+	notInMyHouse			= 30060,
+	guardian				= 30061,
+	stepBackJumper			= 30062,
+	pullUpJumper			= 30063,
+	hopStepFinisher			= 30064,
+	kickOutPasser			= 30065,
+	longRangeHook			= 30066,
+	perimeterDefender		= 30067,
+	chaser					= 30068,
+	tearDrop				= 30069,
+
+	rainbow					= 30070,
+	letsDance				= 30071,
+	inYourFace				= 30072,
+	closeOut				= 30073,
+	popUp					= 30074,
+	tap						= 30075,
+	perfectPutback			= 30076,
+	stretchBlock			= 30077,
+	upperCut				= 30078,
+}
+
+enum RECORD_TYPE:byte
+{
+	None								= 0,
+	TryPointTwo							= 1,
+	PointTwo							= 2,
+	TryPointThree						= 3,
+	PointThree							= 4,
+	Rebound								= 5,
+	Assist								= 6,
+	Steal								= 7,
+	Block								= 8,
+	LooseBall							= 9,
+	TurnOver							= 10,
+	Pass								= 11,
+	NicePass							= 12,
+	DivingCatch							= 13,
+	OverPass							= 14,
+}
+
+enum DEFENSEFEEDBACK_TYPE:byte
+{
+	None								= 0,
+	BadDefense							= 1,
+	NormalDefense						= 2,
+	GoodDefense							= 3,
+	GreatDefense						= 4,
+}
+
+enum EKICK_TYPE:byte
+{
+	none								= 0,
+	long_latency						= 1,
+	speed_hack							= 2,
+	cheat_kick							= 3,
+}
+
+//! 신규 캐릭터가 나올 떄 마다 추가할 것 (resource id? 에 100으로 나눈 값이 인덱스가 된다. 인게임에서는 characterid 라고 쓰고있음)
+enum ECHARACTER_INDEX:int
+{
+	NONE								= 0,
+	Aimar								= 1,
+	Lin									= 2,
+	Naomi								= 3,
+	Kareem								= 4,
+	Bill								= 5,
+	Emma								= 6,
+	Kiara								= 7,
+	Fei									= 8,
+	Gola								= 9,
+	Gary								= 10,
+	Kent								= 11,
+	Sarang								= 12,
+	Thiago								= 13,
+	Thompson							= 14,
+	Momo								= 15,
+	Jimmy								= 16,
+	Hilda								= 17,
+	Tang								= 18,
+	Uncle								= 19,
+	Hao									= 20,
+	Wang								= 21,
+	Xu									= 22,
+	Luo									= 23,
+	Qiuyanyu							= 24,
+	Mei									= 25,
+	Lily								= 26,
+	Qiqi								= 27,
+	Yi									= 28,
+	Nangongyu							= 29,
+	Xiao								= 30,
+	Luyao								= 31,
+	Duke								= 32,
+	Frorin								= 33,
+	Ling								= 34,
+	Norma								= 35,
+	JK									= 36,
+	Olga								= 37,
+	Wuko								= 38,
+	Diego								= 39,
+	Jacky								= 40,
+	Hayato								= 41,
+	Aldo								= 42,
+	Tina								= 43,
+	Amit								= 44,
+	Asami								= 45,
+	Somchai								= 46,
+	Ivan								= 47,
+	Kido								= 48,
+	Siwoo								= 49,
+	Lucky								= 50,
+}
+
+
+//! 아래는 데이터 구조체
+
+struct SBallLerp
+{
+	owner			: int;
+	target			: int;
+	ballstate		: BALL_STATE;
+	positionball	: TB.SVector3;
+	positionowner	: TB.SVector3;
+	speed			: float;
+	time			: float;
+	ballnumber		: int;
+	passtype		: PASS_TYPE;
+	bound			: bool;
+	success			: bool;
+	skillindex 		: SKILL_INDEX;
+}
+
+struct SBallSimulation
+{
+	owner				:int;
+	target		   	:int;
+	ballstate   	:BALL_STATE;
+	positionball  	:TB.SVector3;
+	velocity	   	:TB.SVector3;
+	positionowner 	:TB.SVector3;
+	time			   	:float;
+	ballnumber	   	:int;
+	success		   	:bool;
+	skillindex 	:SKILL_INDEX;
+}
+
+struct SHindrance
+{
+	id					: int;
+	pointorigin			: float;
+	pointresult			: float;
+}
+
+table SBallShot
+{
+	owner						: int;
+	shottype					: SHOT_TYPE;
+	positionball				: TB.SVector3;
+	positionowner				: TB.SVector3;
+	time						: float;
+	ballnumber					: int;
+	shotthrow 					: SHOT_THROW;
+	shotbound 					: SHOT_BOUND;
+	targetreachtime				: float;
+	ownhanded					: bool;
+	wideopen					: bool;
+	bonus						: float;
+	bonuspassive				: float;
+	bonussignature				: float;
+	bonusnicepass				: float;
+	bonusanklebreakesuccess		: float;
+	signaturekey				: int;
+	nicepasshindrance			: bool;	// 나이스패스에 블럭 슈팅방해 있는지 없으면 0 있으면 1
+	nicepasspasser				: int;
+	point						: int;
+	index						: int;
+	skillindex					: SKILL_INDEX;
+	medalindices				: [MEDAL_INDEX];
+	enabledribble				: bool;
+	hindrances					: [SHindrance];
+	bbstate 					: BB_STATE;
+	bankshot					: bool;
+	successrate					: float;
+	success						: bool;
+}
+
+table SLocalGameLogin
+{
+	userid				: uint;
+	username			: string;
+	characterid			: uint;
+	role				: ROLE;
+	team				: int;
+	ailevel				: uint;
+	height				: float; 
+	winspan				: float; 
+	gender				: uint;
+	handedness			: string;
+	ability				: SPlayerAbility;
+	abilitymodification : SPlayerAbility;
+	userkey				: string;
+	skills				: [SSkillInfo];
+	signatures			: [int];
+	medals				: [SMedalInfo];
+	emojis				: [SEmojiInfo];
+	ceremony1			: uint;
+    ceremony2			: uint;
+    ceremony3			: uint;
+	ceremonywin			: uint;
+	ceremonylose		: uint;
+	ceremonydraw		: uint;
+    ceremonymvp			: uint;
+	passivetype			: CHARACTER_PASSIVE_TYPE;
+}
+
+struct SLocalGameTeamRoleCount
+{
+	role				: ROLE;
+	rolecount			: uint;
+}
+
+table SLocalGameTeamRoleCountInfo
+{
+	team				: int;
+	sinfo				: [SLocalGameTeamRoleCount];
+}
+
+struct SPlay
+{
+	teamoffense			: int;
+}
+
+table SPlayerAbility
+{
+	postshot			: float; 
+	midrangeshot		: float; 
+	threepointshot		: float; 
+	dunk				: float; 
+	layup				: float; 
+	pass				: float; 
+	dribble				: float; 
+	postdefense			: float; 
+	perimeterdefense	: float; 
+	block				: float; 
+	rebound				: float; 
+	steal				: float; 
+	strength			: float; 
+	vertical			: float; 
+	speed				: float; 
+	postmove			: float; 
+}
+
+table SAiTendency
+{
+	shotmind				: float; 
+	passmind				: float; 
+	penetrationmind			: float; 
+	helpmind				: float; 
+	stealmind				: float; 
+	reboundmind				: float; 
+	blockmind				: float; 
+	acemind					: float; 
+}
+
+struct SPlayerAction
+{
+	id						: uint; //
+	keys					: uint;
+	number					: uint;
+	directioninput			: float;
+	positionlogic			: TB.SVector3;
+    yawlogic				: float;
+	collisionpriority		: int;
+    skillindex				: SKILL_INDEX;
+	signature				: bool;
+}
+
+table SPlayerActionAnkleBreak
+{
+	playeraction		: SPlayerAction;
+	animid					: int;
+}
+
+table SPlayerModificationAbility
+{
+	abilitytype					: ABILITY_TYPE;
+	value						: float;
+}
+
+table SPlayerActionPenetrateCut
+{
+	playeraction				: SPlayerAction;
+	animid					: int;
+	lefthand					: bool;
+}
+
+table SPlayerActionPostUpPenetrate
+{
+	playeraction			: SPlayerAction;
+	animid					: int;
+	direction				: PENETRATE_DIRECTION;
+}
+
+table SPlayerActionShot
+{
+	playeraction			: SPlayerAction;
+	ballnumber				: int;
+	shottype				: SHOT_TYPE;
+	animid					: int;
+    positionball			: TB.SVector3;
+	enabledribble			: bool;
+	readyanimation			: bool;
+	islefthanded			: bool;
+	hostpermit				: bool;
+}
+
+table SPlayerInformation
+{
+	userid					: uint;
+	characterid				: uint;
+	id						: int;
+	name					: string;
+	role					: ROLE;
+	team					: int;
+	radius					: float;
+	height					: float; 
+	winspan					: float; 
+	gender					: uint;
+	handedness				: string;
+	ability					: SPlayerAbility;
+	abilitymodification		: SPlayerAbility;
+	skills					: [SSkillInfo];
+	medals					: [SMedalInfo];
+	emojis					: [SEmojiInfo];
+	ceremony1				: uint;
+	ceremony2				: uint;
+	ceremony3				: uint;
+	ceremonywin				: uint;
+	ceremonylose			: uint;
+	ceremonydraw			: uint;
+	ceremonymvp				: uint;
+	ailevel					: uint;
+	signatures				: [int];
+	passivetype				: CHARACTER_PASSIVE_TYPE;
+	elo						: uint;
+}
+
+table SPlayerInformationList
+{
+	playerlist 				: [SPlayerInformation];
+}
+
+struct SPlayerPassive
+{
+	id						: int;
+	active					: int;
+	value					: float;
+}
+
+struct SMedalInfo
+{
+	index					: MEDAL_INDEX;
+	grade					: int;
+	level					: int;
+	value					: int;
+	core					: bool;
+}
+
+struct SSkillInfo
+{
+	skillslot				: int;
+	index					: SKILL_INDEX;
+	level					: int;
+}
+
+struct SEmojiInfo
+{
+	slot					: int;
+	index					: int;
+}
+
+table SDisConnectUserInfo
+{
+	userid					: uint;
+	characterid				: uint;
+}
+
+table SReconnectGameScoreInfo
+{
+	team					:int;
+	score					:int;
+}
+
+table SRecordInfo
+{
+	recordtype				: RECORD_TYPE;
+	recordcount				: uint;
+}
+
+table SReconnectGameRecordInfo
+{
+	id						: uint;	// 캐릭터 아이디
+	sinfo					: [SRecordInfo];
+}
+
+table SCharacterOnFireModeInfo
+{
+	id						: uint;	// 캐릭터 아이디
+	step					: int;	// 온파이어모드 단계 (비활성화 일 때는 0 단계)
+	ability					: SPlayerAbility;	// 캐릭터 능력치
+}
+
+struct SDevCharacterBurstGauge
+{
+	id						: uint;	// 캐릭터 아이디
+	gauge					: int;	// 버스트 게이지
+}
+
+////--------------------------------------------------------------------------------
+//// Packet Messages
+////--------------------------------------------------------------------------------
+//
+table system_c2c_ping_data
+{
+	time				: int;
+}
+
+table system_c2c_loadingPercentage_data
+{
+	userid				: int;
+	percentage			: float;
+}
+
+table system_s2c_arrange_data
+{
+	team1			: int;
+	team2			: int;
+	id11			: int;
+	id12			: int;
+	id13			: int;
+	id21			: int;
+	id22			: int;
+	id23			: int;
+	id31			: int;
+	id32			: int;
+	id33			: int;
+	idballboy		: int;
+}
+
+table system_c2s_arrangeReady_data
+{
+	id				: int;
+}
+
+table system_s2c_end_data
+{
+	
+}
+
+table system_c2s_chat_data
+{
+	characterid		: int;
+	context			: string;
+	chattype        : CHAT_TYPE;
+}
+
+table system_s2c_chat_data
+{
+	characterid		: int;
+	context			: string;
+	chattype        : CHAT_TYPE;
+}
+//
+table system_s2c_challengeInfo_data
+{
+	challengestep	: int;
+}
+
+table system_s2c_challengeStart_data
+{
+	ballnumber				:int;
+	ownerid					:int;
+	time					:int;
+	positionball			:TB.SVector3;
+	velocityball			:TB.SVector3;
+	yawcharacter			:[float];
+	positioncharacter  		:[TB.SVector3];
+}
+//
+table system_s2c_count_data
+{
+	value 					:int;
+}
+//
+table system_s2c_goal_data
+{
+	scorerid			:int;
+	point				:int;
+	scoreteam			:int;
+	score				:int;
+	shottype			:SHOT_TYPE;
+	remaintime			:float;
+}
+
+table system_s2c_goal_data_test
+{
+	scorerid			:uint;
+	point				:uint;
+	scoreteam			:uint;
+	score				:uint;
+	shottype			:uint;
+	remaintime			:uint;
+}
+table system_s2c_goal_data_test_table
+{
+	scorerid			:uint;
+	point				:uint;
+	scoreteam			:uint;
+	score				:uint;
+	shottype			:uint;
+	remaintime			:uint;
+}
+//
+table system_s2c_manOfWatch_data
+{
+	scenetype			:POST_GOAL_SCENE_TYPE;
+	sceneid1			:int;
+	sceneid2			:int;
+}
+
+table system_s2c_goalFail_data
+{
+	ownerid				:int;
+	shottype			:SHOT_TYPE;
+	ballnumber			:int;
+	hindrances			:[uint];	// 슛 방해를 준 캐릭터 리스트
+}
+
+table system_s2c_jumpBall_data
+{
+	ballnumber			: int;
+	velocity			: TB.SVector3;
+}
+
+table system_c2s_login_data
+{
+	userid				: int;
+}
+
+table system_s2c_login_data
+{
+	result				:RESULT;
+	logintype			:LOGIN_TYPE;
+	exittype			:EXIT_TYPE;
+	remaingametime		:float;
+}
+
+table system_c2s_readyToLoad_data
+{
+	userid 				:int;
+}
+
+table system_s2c_startLoad_data
+{
+	result				:RESULT;
+	stageid				:uint;
+	gamemode			:EGAME_MODE;
+	isnormalgame		:bool;
+	switchtoailevel		:uint;
+}
+
+table system_c2s_loadComplete_data
+{
+	userid			: int;
+}
+
+table system_s2c_sceneEnter_data
+{
+	result			: RESULT;
+	sceneindex		: int;
+	timegame		: int;
+	playerlist		: [int];
+}
+
+table system_c2s_sceneEnd_data
+{
+	userid			: int;
+}
+
+table system_c2s_readyToChallenge_data
+{
+	userid			: int;
+}
+
+table system_s2c_readyToJumpBall_data
+{
+	ballnumber		: int;
+	team1			: int;
+	team2			: int;
+	id11			: int;
+	id12			: int;
+	id13			: int;
+	id21			: int;
+	id22			: int;
+	id23			: int;
+	id31			: int;
+	id32			: int;
+	id33			: int;
+	overtime		: bool;
+	time			: int;
+}
+
+table system_s2c_readyToLineUp_data
+{
+	ballnumber		: int;
+	team1			: int;
+	team2			: int;
+	id11			: int;
+	id12			: int;
+	id13			: int;
+	id21			: int;
+	id22			: int;
+	id23			: int;
+	id31			: int;
+	id32			: int;
+	id33			: int;
+}
+
+table system_s2c_readyToPlay_data
+{
+	ballnumber		: int;
+	team1			: int;
+	team2			: int;
+	id11			: int;
+	id12			: int;
+	id13			: int;
+	id21			: int;
+	id22			: int;
+	id23			: int;
+	id31			: int;
+	id32			: int;
+	id33			: int;
+	positionreset	: bool;
+}
+
+table system_s2c_replayStart_data
+{
+	duration : float;
+	buzzerbeater : bool;
+}
+
+table system_s2c_play_data
+{
+	play 		: SPlay;
+}
+
+table system_s2c_playerInfo_data
+{
+	playerlist : [SPlayerInformation];
+}
+
+table system_s2c_reconnectEnter_data
+{
+	result			: RESULT;
+	timegame		: int;
+}
+
+table system_s2c_result_data
+{
+	mvpid			: int;
+}
+
+table system_s2c_shotClockViolation_data
+{
+	time				: int;
+}
+
+table system_s2c_timeGame_data
+{
+	time 				: int;
+	timefloat			: float;
+}
+
+table system_s2c_timeShot_data
+{
+	time 				: int;
+}
+
+table system_c2s_readyToTraining_data
+{
+	userid				: int;
+}
+
+table system_s2c_surrenderActivation_data
+{
+	team				: int;	// 팀 인덱스
+	activation			: bool; // true 면 활성화, false 면 비활성화
+}
+
+table system_c2s_surrenderVote_data
+{
+	characterid			: int;	// 캐릭터 아이디
+	vote				: bool;	// true면 찬성, false면 반대
+}
+
+table system_s2c_surrenderVote_data
+{
+	characterid			: int;	// 캐릭터 아이디
+	vote				: bool;	// true면 찬성, false면 반대
+}
+
+table system_s2c_trainingInfo_data
+{
+	gamemode			: EGAME_MODE;
+}
+
+table system_s2c_trainingStart_data
+{
+	ballnumber			: int;
+	positionball		: TB.SVector3;
+	velocityball		: TB.SVector3;
+	positioncharacter  	: TB.SVector3;
+}
+
+table system_c2s_exitGame_data
+{
+	userid				: uint;
+	type				: int;
+}
+
+table system_c2s_readyToTutorial_data
+{
+	userid				: int;
+}
+
+table system_c2s_tutorialResult_data
+{
+	result				: bool;
+}
+
+table system_s2c_tutorialResult_data
+{
+	result				: bool;
+}
+
+table system_s2c_tutorialInfo_data
+{
+	gamemode			: EGAME_MODE;
+}
+
+table system_s2c_tutorialStart_data
+{
+	ballnumber			: int;
+}
+
+table system_s2c_changeOfControl_data
+{
+	sinfo 				:[SDisConnectUserInfo];
+}
+
+table system_s2c_reconnectCharacterLastActionInfo_data
+{
+	userid					: uint;
+	characterid				: uint;
+	number					: uint;
+}
+
+table system_s2c_kickToTheLobby_data
+{
+	kicktype			: EKICK_TYPE;
+}
+
+table system_s2c_awayFromKeyboard_data
+{
+	characterid			: uint;
+}
+
+table system_c2s_awayFromKeyboard_data
+{
+	characterid			: uint;
+	result				: bool;	// true 면 복귀
+}
+
+table system_c2s_useJoystick_data
+{
+	characterid			: uint;
+	result				: bool;	// true 면 조이스틱 사용함
+}
+
+table system_s2c_reconnectGameScore_data
+{
+	sinfo 				:[SReconnectGameScoreInfo];
+}
+
+table system_s2c_reconnectGameRecord_data
+{
+	sinfo 				:[SReconnectGameRecordInfo];
+}
+
+table system_s2c_observerUserCountInfo_data
+{
+	count 				: uint;
+}
+
+table system_c2s_devGameTime_data
+{
+	gametime 			: float;
+}
+
+table system_s2c_debugString_data
+{
+	str  				: string;
+}
+
+table system_s2c_devBurstGauge_data
+{
+	sinfo				: [SDevCharacterBurstGauge];
+}
+
+table system_s2c_devRegistSkill_data
+{
+	id					: int;
+	index				: int;
+	level				: int;
+	regist				: bool;
+}
+
+table play_c2s_ballClear_data
+{
+	ballcleared		: bool;
+	position		: TB.SVector3;
+}
+
+table play_s2c_ballClear_data
+{
+	ballcleared		: bool;
+	position		: TB.SVector3;
+}
+
+table play_c2s_ballLerp_data
+{
+	balllerp 				: SBallLerp;
+}
+
+table play_s2c_ballLerp_data
+{
+	balllerp 				: SBallLerp;
+}
+
+table play_c2s_ballSimulation_data
+{
+	ballsimulation 			: SBallSimulation;
+	clienttime				: float;
+	snrnsisj				: [byte];
+}
+
+table play_s2c_ballSimulation_data
+{
+	ballsimulation 			: SBallSimulation;
+}
+
+table play_c2s_ballShot_data
+{
+	ballshot 				: SBallShot;
+	clienttime				: float;
+	snrnsisj				: [byte];
+}
+
+table play_s2c_ballShot_data
+{
+	ballshot 				: SBallShot;
+}
+
+table play_c2s_environmentCat_data
+{
+	number						:int;
+	positioncat					:TB.SVector3;
+}
+
+table play_s2c_environmentCat_data
+{
+	number						:int;
+	runmode						:bool;
+	positiondest				:TB.SVector3;
+}
+
+table play_s2c_onFireModeInfo_data
+{
+	sinfo						: [SCharacterOnFireModeInfo];
+}
+
+table play_c2s_onFireModeInfo_data
+{
+	characterid					: int;
+}
+
+table play_s2c_environmentPigeon_data
+{
+	appeartype					: int;
+}
+
+table play_c2s_playerAlleyOopCut_data
+{
+	playeraction				: SPlayerAction;
+	ballnumber					: int;
+	animid						: int;
+    ownerid						: int;
+	positionowner				: TB.SVector3;
+	positionball				: TB.SVector3;
+	success						: bool;
+	passtargetid				: int;
+	positionballblockevent		: TB.SVector3;
+	localpositionball			: TB.SVector3;
+	slideposition				: TB.SVector3;
+	ismirroranim				: bool;
+}
+
+table play_s2c_playerAlleyOopCut_data
+{
+	playeraction				: SPlayerAction;
+	ballnumber					: int;
+	animid						: int;
+    ownerid						: int;
+	positionowner				: TB.SVector3;
+	positionball				: TB.SVector3;
+	success						: bool;
+	passtargetid				: int;
+	positionballblockevent		: TB.SVector3;
+	localpositionball			: TB.SVector3;
+	slideposition				: TB.SVector3;
+	ismirroranim				: bool;
+}
+
+table play_c2s_playerAlleyOopPass_data
+{
+	playeraction				: SPlayerAction;
+	ballnumber					: int;
+	animid						: int;
+    positionball				: TB.SVector3;
+	targetball					: TB.SVector3;
+	durationarrive				: float;
+	mirror						: bool;
+	targetid					: int;
+	localpositionball			: TB.SVector3;
+	slideposition				: TB.SVector3;
+	ismirroranim				: bool;
+}
+
+table play_s2c_playerAlleyOopPass_data
+{
+	playeraction				: SPlayerAction;
+	ballnumber					: int;
+	animid						: int;
+    positionball				: TB.SVector3;
+	targetball					: TB.SVector3;
+	durationarrive				: float;
+	targetid					: int;
+	mirror						: bool;
+	localpositionball			: TB.SVector3;
+	slideposition				: TB.SVector3;
+	ismirroranim				: bool;
+}
+
+table play_c2s_playerAlleyOopShot_data
+{
+	playeraction				: SPlayerAction;
+	ballnumber					: int;
+	animfirstid					: int;
+	animsecondid				: int;
+	ismirror					: bool;
+    positionball				: TB.SVector3;
+	successin					: bool;
+	successout					: bool;
+	localpositionball			: TB.SVector3;
+	secondlocalpositionball		: TB.SVector3;
+	slidepositiona				: TB.SVector3;
+	slidepositionb				: TB.SVector3;
+	slideyawb					: float;
+	ismirroranim				: bool;
+}
+
+table play_s2c_playerAlleyOopShot_data
+{
+	playeraction				: SPlayerAction;
+	ballnumber					: int;
+	animfirstid					: int;
+	animsecondid				: int;
+	ismirror					: bool;
+    positionball				: TB.SVector3;
+	successin					: bool;
+	successout					: bool;
+	localpositionball			: TB.SVector3;
+	secondlocalpositionball		: TB.SVector3;
+	slidepositiona				: TB.SVector3;
+	slidepositionb				: TB.SVector3;
+	slideyawb					: float;
+	ismirroranim				: bool;
+}
+
+table play_c2s_playerBlock_data
+{
+	playeraction				: SPlayerAction;
+	ballnumber					: int;
+	animid						: int;
+    ownerid						: int;
+	positionowner				: TB.SVector3;
+	positionball				: TB.SVector3;
+	positionballblockevent		: TB.SVector3;
+	success						: bool;
+	mirror						: bool;
+	strong						: bool;
+	passtargetid				: int;
+	localpositionball			: TB.SVector3;
+	slideposition				: TB.SVector3;
+	ismirroranim				: bool;
+	clienttime					: float;
+	bonusa						: float;
+	bonusb						: float;
+	bonusc						: float;	// 총 성공률
+	bonusd						: float;	// 서버에서 계산하지 못하는 성공률
+	snrnsisj					: [byte];
+}
+
+table play_s2c_playerBlock_data
+{
+	playeraction				: SPlayerAction;
+	ballnumber					: int;
+	animid						: int;
+    ownerid						: int;
+	positionowner				: TB.SVector3;
+	positionball				: TB.SVector3;
+	positionballblockevent		: TB.SVector3;
+	success						: bool;
+	mirror						: bool;
+	strong						: bool;
+	passtargetid				: int;
+	localpositionball			: TB.SVector3;
+	slideposition				: TB.SVector3;
+	ismirroranim				: bool;
+	hostpermit					: bool;
+	normal						: bool;
+}
+
+table play_c2s_playerBuff_data
+{
+	characterid						: int;
+	type							: int;
+}
+
+table play_s2c_playerBuff_data
+{
+	characterid						: int;
+	type							: int;
+}
+
+table play_c2s_playerCeremony_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	ceremonytype					: CEREMONY_TYPE;
+	playpreviousanimation			: bool;
+	checkballnumber					: bool;
+	ceremonyid						: uint;
+}
+
+table play_s2c_playerCeremony_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	ceremonytype					: CEREMONY_TYPE;
+	playpreviousanimation			: bool;
+	ceremonyid						: uint;
+}
+
+table play_c2s_playerCeremonyEnd_data
+{
+	id								: int;
+}
+
+table play_s2c_playerCeremonyEnd_data
+{
+	id								: int;
+}
+
+table play_c2s_playerHit_data
+{
+	id								: int;
+	actiontype						: ACTION_TYPE;
+	collisionid						: int;
+	collisionposition				: TB.SVector3;
+}
+
+table play_s2c_playerHit_data
+{
+	id								: int;
+	actiontype						: ACTION_TYPE;
+	collisionid						: int;
+	collisionposition				: TB.SVector3;
+}
+
+table play_c2s_playerCollision_data
+{
+	playeraction					: SPlayerAction;
+	targetid						: int;
+	type							: COLLISION_TYPE;
+	animid							: int;
+	mirror							: bool;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerCollision_data
+{
+	playeraction					: SPlayerAction;
+	targetid						: int;
+	type							: COLLISION_TYPE;
+	animid							: int;
+	mirror							: bool;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerCoupleCeremony_data
+{
+	ceremonyid						: int;
+	id1								: int;
+	position1						: TB.SVector3;
+	rotation1						: float;
+	id2								: int;
+	position2						: TB.SVector3;
+	rotation2						: float;
+}
+
+table play_s2c_playerCoupleCeremony_data
+{
+	ceremonyid						: int;
+	id1								: int;
+	position1						: TB.SVector3;
+	rotation1						: float;
+	id2								: int;
+	position2						: TB.SVector3;
+	rotation2						: float;
+}
+
+table play_c2s_playerCrossOver_data
+{
+	playeraction					: SPlayerAction;
+	animidmain						: int;
+	animidsub						: int;
+	islefthanded					: bool;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerCrossOver_data
+{
+	playeraction					: SPlayerAction;
+	animidmain						: int;
+	animidsub						: int;
+	islefthanded					: bool;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerCutIn_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	yawdelta						: float;
+	islefthanded					: bool;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerCutIn_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	yawdelta						: float;
+	islefthanded					: bool;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerVCut_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	yawdelta						: float;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerVCut_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	yawdelta						: float;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerIllegalScreen_data
+{
+	id								: int;	// 일리걸 스크린을 발동시킨 캐릭터
+}
+
+table play_s2c_playerIllegalScreen_data
+{
+	id								: int;	// 일리걸 스크린으로 인해 생긴 디버프가 해제될 때 id 값을 초기화 해준다
+}
+
+table play_c2s_playerGiveAndGoMove_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerGiveAndGoMove_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerOneDribblePullUpJumperMove_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	ismirroranim					: bool;
+	direction						: PENETRATE_DIRECTION;
+}
+
+table play_s2c_playerOneDribblePullUpJumperMove_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	ismirroranim					: bool;
+	direction						: PENETRATE_DIRECTION;
+}
+
+table play_c2s_playerShammgod_data
+{
+	playeraction					: SPlayerAction;
+	penetratecount					: int;
+	ismirroranim					: bool;
+	direction						: int;
+	lefthand						: bool;
+	animid							: int;
+}
+
+table play_s2c_playerShammgod_data
+{
+	playeraction					: SPlayerAction;
+	penetratecount					: int;
+	ismirroranim					: bool;
+	direction						: int;
+	lefthand						: bool;
+	animid							: int;
+}
+
+table play_c2s_playerPassFake_data
+{
+	playeraction					: SPlayerAction;
+	ballnumber						: int;
+    positionball					: TB.SVector3;
+	localpositionball				: TB.SVector3;
+	fakeanimid						: int;
+	fakeismirroranim				: bool;
+	faketargetposition				: TB.SVector3;
+	realanimid						: int;
+	realismirroranim				: bool;
+	realtargetid					: int;
+	passtype						: PASS_TYPE;
+}
+
+table play_s2c_playerPassFake_data
+{
+	playeraction					: SPlayerAction;
+	ballnumber						: int;
+    positionball					: TB.SVector3;
+	localpositionball				: TB.SVector3;
+	fakeanimid						: int;
+	fakeismirroranim				: bool;
+	faketargetposition				: TB.SVector3;
+	realanimid						: int;
+	realismirroranim				: bool;
+	realtargetid					: int;
+	passtype						: PASS_TYPE;
+}
+
+table play_c2s_playerCatchAndShotMove_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerCatchAndShotMove_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerInYourFace_data
+{
+	id								: uint;	// 스킬을 사용하는 애
+	targetid						: uint;	// 스킬에 걸릴 애
+	animid							: int;	// 지정 애니메이션
+}
+
+table play_s2c_playerInYourFace_data
+{
+	id								: uint;	// 스킬을 사용하는 애
+	targetid						: uint;	// 스킬에 걸릴 애
+	animid							: int;	// 지정 애니메이션
+}
+
+table play_c2s_playerStunIntercept_data
+{
+	id								: uint;	// stun을 거는 플레이어의 id
+	targetid						: uint;	// stun에 걸리는 플레이어 id
+}
+
+table play_s2c_playerStunIntercept_data
+{
+	id								: uint;	// stun을 거는 플레이어의 id
+	targetid						: uint;	// stun에 걸리는 플레이어 id
+}
+
+table play_c2s_playerGoAndCatch_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerGoAndCatch_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerDenyDefense_data
+{
+	playeraction					: SPlayerAction;
+	ballnumber						: int;
+    positionball					: TB.SVector3;
+}
+
+table play_s2c_playerDenyDefense_data
+{
+	playeraction					: SPlayerAction;
+	ballnumber						: int;
+    positionball					: TB.SVector3;
+}
+
+table play_c2s_playerPenetrateReady_data
+{
+	playeraction					: SPlayerAction;
+	index							: int;
+	animid							: int;
+	lefthand						: bool;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerPenetrateReady_data
+{
+	playeraction					: SPlayerAction;
+	index							: int;
+	animid							: int;
+	lefthand						: bool;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerDoubleClutch_data
+{
+	id								: int;
+	animid							: int;
+	skillindex 						: SKILL_INDEX;
+	syncedposition					: TB.SVector3;
+	slideposition					: TB.SVector3;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerDoubleClutch_data
+{
+	id								: int;
+	animid							: int;
+	skillindex 						: SKILL_INDEX;
+	syncedposition					: TB.SVector3;
+	slideposition					: TB.SVector3;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerFakeShot_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	enabledribble					: bool;
+	lefthand						: bool;
+	ismirroranim					: bool;
+	clienttime						: float;
+	snrnsisj						: [byte];
+}
+
+table play_s2c_playerFakeShot_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	enabledribble					: bool;
+	lefthand						: bool;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerHandCheck_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	lefthand						: bool;
+	positionball					: TB.SVector3;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerHandCheck_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	lefthand						: bool;
+	positionball					: TB.SVector3;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerHookHook_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	lefthand						: bool;
+	positionball					: TB.SVector3;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerHookHook_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	lefthand						: bool;
+	positionball					: TB.SVector3;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerHopStep_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	lefthand						: bool;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerHopStep_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	lefthand						: bool;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerIntercept_data
+{
+	playeraction					: SPlayerAction;
+	ballnumber						: int;
+	successtype						: int;
+	animid							: int;
+    positionball					: TB.SVector3;
+	yawdest							: float;
+	localpositionball				: TB.SVector3;
+	slideposition					: TB.SVector3;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerIntercept_data
+{
+	playeraction					: SPlayerAction;
+	ballnumber						: int;
+	successtype						: int;
+	animid							: int;
+    positionball					: TB.SVector3;
+	yawdest							: float;
+	localpositionball				: TB.SVector3;
+	slideposition					: TB.SVector3;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerJumpBallTapOut_data
+{
+	playeraction					: SPlayerAction;
+	ballnumber						: int;
+	animid							: int;
+	mirror							: bool;
+    positionball					: TB.SVector3;
+	success							: bool;
+	localpositionball				: TB.SVector3;
+	slideposition					: TB.SVector3;
+	ismirroranim					: bool;
+	snrnsisj						: [byte];
+}
+
+table play_s2c_playerJumpBallTapOut_data
+{
+	playeraction					: SPlayerAction;
+	ballnumber						: int;
+	animid							: int;
+	mirror							: bool;
+    positionball					: TB.SVector3;
+	success							: bool;
+	localpositionball				: TB.SVector3;
+	slideposition					: TB.SVector3;
+	ismirroranim					: bool;
+	hostpermit						: bool;
+}
+
+table play_c2s_playerModificationAbility_data
+{
+	playerid						: int;
+	playermodificationabilities		: [SPlayerModificationAbility];
+}
+
+table play_s2c_playerModificationAbility_data
+{
+	playerid						: int;
+	playermodificationabilities		: [SPlayerModificationAbility];
+}
+
+table play_c2s_playerMove_data
+{
+	playeraction  					: SPlayerAction;
+	speed							: float;
+	runmode							: MOVE_MODE;
+	lookid							: int;
+	lefthand						: bool;
+	synctime						: float;
+	activemedalagilemovement		: bool;
+	activemedpassionaterebounder	: bool;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerMove_data
+{
+	playeraction  					: SPlayerAction;
+	speed							: float;
+	runmode							: MOVE_MODE;
+	lookid							: int;
+	lefthand						: bool;
+	synctime						: float;
+	activemedalagilemovement		: bool;
+	activemedpassionaterebounder	: bool;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerPass_data
+{
+	playeraction					: SPlayerAction;
+	ballnumber						: int;
+	animid							: int;
+    positionball					: TB.SVector3;
+	yawdest							: float;
+	targetid						: int;
+	mirror							: bool;
+	passtype						: PASS_TYPE;
+	localpositionball				: TB.SVector3;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerPass_data
+{
+	playeraction					: SPlayerAction;
+	ballnumber						: int;
+	animid							: int;
+    positionball					: TB.SVector3;
+	yawdest							: float;
+	targetid						: int;
+	mirror							: bool;
+	passtype						: PASS_TYPE;
+	localpositionball				: TB.SVector3;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerPenetrate_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	animidsub						: int;
+	direction						: PENETRATE_DIRECTION;
+	count							: int;
+	end								: bool;
+	lefthand						: bool;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerPenetrate_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	animidsub						: int;
+	direction						: PENETRATE_DIRECTION;
+	count							: int;
+	end								: bool;
+	lefthand						: bool;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerPenetrateCut_data
+{
+	tmp								:	bool;
+}
+
+table play_s2c_playerPenetrateCut_data
+{
+	tmp								:	bool;
+}
+table play_c2s_playerPenetratePostUp_data
+{
+	playeraction					: SPlayerAction;
+	lefthand						: bool;
+	animid							: int;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerPenetratePostUp_data
+{
+	playeraction					: SPlayerAction;
+	lefthand						: bool;
+	animid							: int;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerPick_data
+{
+	playeraction					: SPlayerAction;
+	ballnumber						: int;
+	animid							: int;
+    positionball					: TB.SVector3;
+	success							: bool;
+	corrposition					: bool;
+	targetid						: int;
+	hostpermit						: bool;
+	localpositionball				: TB.SVector3;
+	slideposition					: TB.SVector3;
+	ismirroranim					: bool;
+	clienttime						: float;
+	checkballeventtime				: float;
+	bonusa							: float;
+	snrnsisj						: [byte];
+}
+
+table play_s2c_playerPick_data
+{
+	playeraction					: SPlayerAction;
+	ballnumber						: int;
+	animid							: int;
+    positionball					: TB.SVector3;
+	success							: bool;
+	corrposition					: bool;
+	targetid						: int;
+	hostpermit						: bool;
+	localpositionball				: TB.SVector3;
+	slideposition					: TB.SVector3;
+	ismirroranim					: bool;
+	normal							: bool;
+}
+
+table play_c2s_playerPickAndMove_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	yawdelta						: float;
+	speed							: float;
+	islefthanded					: bool;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerPickAndMove_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	yawdelta						: float;
+	speed							: float;
+	islefthanded					: bool;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerPickAndSlip_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	islefthanded					: bool;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerPickAndSlip_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	islefthanded					: bool;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerPositionCorrect_data
+{
+	id								: int;
+	position						: TB.SVector3;
+    yaw								: float;
+}
+
+table play_s2c_playerPositionCorrect_data
+{
+	id								: int;
+	position						: TB.SVector3;
+    yaw								: float;
+}
+
+table play_c2s_playerRebound_data
+{
+	playeraction					: SPlayerAction;
+	ballnumber						: int;
+	animid							: int;
+    positionball					: TB.SVector3;
+	mirror							: bool;
+	success							: bool;
+	localpositionball				: TB.SVector3;
+	slideposition					: TB.SVector3;
+	ismirroranim					: bool;
+	clienttime						: float;
+	bonusa							: float;
+	bonusb							: float;
+	snrnsisj						: [byte];
+}
+
+table play_s2c_playerRebound_data
+{
+	playeraction					: SPlayerAction;
+	ballnumber						: int;
+	animid							: int;
+    positionball					: TB.SVector3;
+	mirror							: bool;
+	success							: bool;
+	localpositionball				: TB.SVector3;
+	slideposition					: TB.SVector3;
+	hostpermit						: bool;
+	ismirroranim					: bool;
+	normal							: bool;
+}
+
+table play_c2s_playerReceivePass_data
+{
+	playeraction					: SPlayerAction;
+	ballnumber						: int;
+	balltime						: float;
+	animid							: int;
+	mirror							: bool;
+    positionball					: TB.SVector3;
+	result							: bool;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerReceivePass_data
+{
+	playeraction					: SPlayerAction;
+	ballnumber						: int;
+	balltime						: float;
+	animid							: int;
+	mirror							: bool;
+    positionball					: TB.SVector3;
+	result							: bool;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerScreen_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	mirror							: bool;
+	readytime						: float;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerScreen_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	mirror							: bool;
+	readytime						: float;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerSpeaking_data
+{
+	id								: int;
+	playerscript					: PLAYER_SCRIPT;
+}
+
+table play_s2c_playerSpeaking_data
+{
+	id								: int;
+	playerscript					: PLAYER_SCRIPT;
+}
+
+table play_c2s_playerShakeAndBake_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	lefthand						: bool;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerShakeAndBake_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	lefthand						: bool;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerShot_data
+{
+	playeraction					: SPlayerAction;
+	ballnumber						: int;
+	shottype						: SHOT_TYPE;
+	animid							: int;
+    positionball					: TB.SVector3;
+	speed							: float;
+	enabledribble					: bool;
+	readyanimation					: bool;
+	islefthanded					: bool;
+	localpositionball				: TB.SVector3;
+	slideposition					: TB.SVector3;
+	ismirroranim					: bool;
+	clienttime						: float;
+	snrnsisj						: [byte];
+}
+
+table play_s2c_playerShot_data
+{
+	playeraction					: SPlayerAction;
+	ballnumber						: int;
+	shottype						: SHOT_TYPE;
+	animid							: int;
+    positionball					: TB.SVector3;
+	speed							: float;
+	enabledribble					: bool;
+	readyanimation					: bool;
+	islefthanded					: bool;
+	localpositionball				: TB.SVector3;
+	slideposition					: TB.SVector3;
+	ismirroranim					: bool;
+	hostpermit						: bool;
+	normal							: bool;
+}
+
+table play_c2s_playerSlideStep_data
+{
+	playeraction					: SPlayerAction;
+	ismirror						: bool;
+	animid							: int;
+	yawlook							: float;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerSlideStep_data
+{
+	playeraction					: SPlayerAction;
+	ismirror						: bool;
+	animid							: int;
+	yawlook							: float;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerCloseOut_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	ismirror						: bool;
+	yawlook							: float;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerCloseOut_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	ismirror						: bool;
+	yawlook							: float;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerChaseContest_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerChaseContest_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerSlipAndSlide_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	count							: int;
+	lefthand						: bool;
+	direction						: PENETRATE_DIRECTION;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerSlipAndSlide_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	count							: int;
+	lefthand						: bool;
+	direction						: PENETRATE_DIRECTION;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerSpinMove_data
+{
+	playeraction					: SPlayerAction;
+	ismirror						: bool;
+	animid							: int;
+	lefthand						: bool;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerSpinMove_data
+{
+	playeraction					: SPlayerAction;
+	ismirror						: bool;
+	animid							: int;
+	lefthand						: bool;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerStand_data
+{
+	playeraction					: SPlayerAction;
+	runmode							: MOVE_MODE;
+	lookid							: int;
+	yawdest							: float;
+	lefthand						: bool;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerStand_data
+{
+	playeraction					: SPlayerAction;
+	runmode							: MOVE_MODE;
+	lookid							: int;
+	yawdest							: float;
+	lefthand						: bool;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerSteal_data
+{
+	playeraction					: SPlayerAction;
+	ballnumber						: int;
+	stealtype						: STEAL_TYPE;
+	animid							: int;
+    positionball					: TB.SVector3;
+	animspeed						: float;
+	mirror							: bool;
+	ismirroranim					: bool;
+	clienttime						: float;
+	snrnsisj						: [byte];
+}
+
+table play_s2c_playerSteal_data
+{
+	playeraction					: SPlayerAction;
+	ballnumber						: int;
+	stealtype						: STEAL_TYPE;
+	animid							: int;
+    positionball					: TB.SVector3;
+	animspeed						: float;
+	mirror							: bool;
+	ismirroranim					: bool;
+	hostpermit						: bool;
+	normal							: bool;
+}
+
+table play_c2s_playerStealFail_data
+{
+	dribblerid						: int;
+	stealerid						: int;
+	stealtype						: STEAL_TYPE;
+}
+
+table play_s2c_playerStealFail_data
+{
+	dribblerid						: int;
+	stealerid						: int;
+	stealtype						: STEAL_TYPE;
+}
+
+table play_c2s_playerTapOut_data
+{
+	playeraction					: SPlayerAction;
+	ballnumber						: int;
+	animid							: int;
+	mirror							: bool;
+	outside							: bool;
+    positionball					: TB.SVector3;
+	success							: bool;
+	localpositionball				: TB.SVector3;
+	slideposition					: TB.SVector3;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerTapOut_data
+{
+	playeraction					: SPlayerAction;
+	ballnumber						: int;
+	animid							: int;
+	mirror							: bool;
+    outside							: bool;
+	positionball					: TB.SVector3;
+	success							: bool;
+	localpositionball				: TB.SVector3;
+	slideposition					: TB.SVector3;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerTapPass_data
+{
+	playeraction					: SPlayerAction;
+	ballnumber						: int;
+	animid							: int;
+	mirror							: bool;
+    positionball					: TB.SVector3;
+	success							: bool;
+	localpositionball				: TB.SVector3;
+	slideposition					: TB.SVector3;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerTapPass_data
+{
+	playeraction					: SPlayerAction;
+	ballnumber						: int;
+	animid							: int;
+	mirror							: bool;
+    positionball					: TB.SVector3;
+	success							: bool;
+	localpositionball				: TB.SVector3;
+	slideposition					: TB.SVector3;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerTipIn_data
+{
+	playeraction					: SPlayerAction;
+	ballnumber						: int;
+	animid							: int;
+	ismirror						: bool;
+    positionball					: TB.SVector3;
+	success							: bool;
+	localpositionball				: TB.SVector3;
+	secondlocalpositionball			: TB.SVector3;
+	slidepositiona					: TB.SVector3;
+	slidepositionb					: TB.SVector3;
+	slideyawb						: float;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerTipIn_data
+{
+	playeraction					: SPlayerAction;
+	ballnumber						: int;
+	animid							: int;
+	ismirror						: bool;
+    positionball					: TB.SVector3;
+	success							: bool;
+	localpositionball				: TB.SVector3;
+	secondlocalpositionball			: TB.SVector3;
+	slidepositiona					: TB.SVector3;
+	slidepositionb					: TB.SVector3;
+	slideyawb						: float;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerEmotion_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+}
+
+table play_s2c_playerEmotion_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+}
+
+table play_c2s_playerPassive_data
+{
+	idplayer						: int;
+	type							: CHARACTER_PASSIVE_TYPE;
+	value							: float;
+	activate						: bool;
+	effecttrigger					: bool;
+	snrnsisj						: [byte];
+}
+
+table play_s2c_playerPassive_data
+{
+	idplayer						: int;
+	type							: CHARACTER_PASSIVE_TYPE;
+	value							: float;
+	activate						: bool;
+	effecttrigger					: bool;
+	hostpermit						: bool;
+}
+
+table play_c2s_playerPostUpCollision_data
+{
+	playerid						: int;
+	positionplayer					: TB.SVector3;
+	targetid						: int;
+	targetactiontype				: ACTION_TYPE;
+	positiontarget					: TB.SVector3;
+	result							: int;
+}
+
+table play_s2c_playerPostUpCollision_data
+{
+	playerid						: int;
+	positionplayer					: TB.SVector3;
+	targetid						: int;
+	targetactiontype				: ACTION_TYPE;
+	positiontarget					: TB.SVector3;
+	result							: int;
+}
+
+table play_c2s_playerPostUpPenetrate_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	mirror							: bool;
+	lefthand						: bool;
+	direction						: PENETRATE_DIRECTION;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerPostUpPenetrate_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	mirror							: bool;
+	lefthand						: bool;
+	direction						: PENETRATE_DIRECTION;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerPostUpReady_data
+{
+	playeraction					: SPlayerAction;
+	enter							: bool;
+	lefthand						: bool;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerPostUpReady_data
+{
+	playeraction					: SPlayerAction;
+	enter							: bool;
+	lefthand						: bool;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerPostUpStepBack_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	lefthand						: bool;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerPostUpStepBack_data
+{
+	playeraction					: SPlayerAction;
+	animid							: int;
+	lefthand						: bool;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerStop_data
+{
+	stop							: bool;
+}
+
+table play_s2c_playerStop_data
+{
+	stop							: bool;
+}
+
+table play_c2s_playerStun_data
+{
+	playeraction					: SPlayerAction;
+	stuntype						: STUN_TYPE;
+	animid							: int;
+	destyaw							: float;
+	ismirror						: bool;
+	causerid						: int;
+	ismirroranim					: bool;
+}
+
+table play_s2c_playerStun_data
+{
+	playeraction					: SPlayerAction;
+	stuntype						: STUN_TYPE;
+	animid							: int;
+	destyaw							: float;
+	ismirror						: bool;
+	causerid						: int;
+	ismirroranim					: bool;
+}
+
+table play_c2s_playerSwitchActive_data
+{
+	id								: int;
+	toactive						: bool;
+	result							: bool;
+}
+
+table play_s2c_playerSwitchActive_data
+{
+	id								: int;
+	toactive						: bool;
+	result							: bool;
+}
+
+table play_c2s_playerSwitchRequest_data
+{
+	id1								: int;
+	id2								: int;
+}
+
+table play_s2c_playerSwitchRequest_data
+{
+	id1								: int;
+	id2								: int;
+}
+
+table play_c2s_playerSwitchResponse_data
+{
+	id1								: int;
+	id2								: int;
+	response						: bool;
+}
+
+table play_s2c_playerSwitchResponse_data
+{
+	id1								: int;
+	id2								: int;
+	response						: bool;
+}
+
+table play_c2s_playerEmoji_data
+{
+	id								: int;	// 캐릭터 아이디 - 누가 보낸건지
+	index							: int;
+}
+
+table play_s2c_playerEmoji_data
+{
+	id								: int;	// 캐릭터 아이디 - 누가 보낸건지
+	index							: int;
+}
+
+table play_c2s_playerBurstRequest_data
+{
+	id								: int;	// 캐릭터 아이디
+	requesttype						: BURST_REQUEST;
+}
+
+table play_c2s_uiDisplayMedal_data
+{
+	id								: int;
+	medalindex						: MEDAL_INDEX;
+}
+
+table play_s2c_uiDisplayMedal_data
+{
+	id								: int;
+	medalindex						: MEDAL_INDEX;
+}
+
+table challenge_s2c_point_data
+{
+	point 							: int;
+	gain 							: int;
+	message 						: CHALLENGE_MESSAGE;
+	delay 							: float;
+}
+
+table challenge_s2c_result_data
+{
+	point 							: int;
+}
+
+table challenge_s2c_setTarget_data
+{
+	targetid 						: int;
+}
+
+table challenge_s2c_start_data
+{
+	userid 							: int;
+}
+
+table challenge_s2c_stop_data
+{
+	userid 							: int;
+}
+
+table challenge_c2s_retry_data
+{
+	userid 							: int;
+	retry 							: bool;	// 다시하기면 true, 나가기면 false
+}
+
+table challenge_s2c_retry_data
+{
+	retry 							: bool;	// 다시하기면 true, 나가기면 false
+}
+
+table play_s2c_gameRecord_data
+{
+	userid							: uint;
+	characterid						: uint;
+	id								: int;
+	name							: string;
+	recordtype						: RECORD_TYPE;
+	recordcount						: uint;
+}
+
+table play_c2s_greatDefense_data
+{
+	id								: int;
+	defensefeedbacktype				: DEFENSEFEEDBACK_TYPE;
+}
+
+//--------------------------------------------------------------------------------
+// LocalHost Packet Messages
+// InGameServer와 진입점이 다른 특이사항으로 인해 packet 분리한다.
+// 아래 packet 들은 LocalHost 에 종속되므로 새롭게 정의한다.
+// 대부분의 play packet 은 호환 가능하므로 pass
+//--------------------------------------------------------------------------------
+table local_system_c2s_login_data
+{
+	str_buildinfo					:string;
+	gamelogin 						:SLocalGameLogin ;
+}
+
+table local_system_s2c_login_data
+{
+	result							: RESULT;
+	gamelogin						: SLocalGameLogin;
+}
+
+table local_system_s2c_loginTeamInfo_data
+{
+	 sinfo							: [SLocalGameTeamRoleCountInfo];
+}
+
+table local_system_s2c_playerInfo_data
+{
+	playerinfomation 				: SPlayerInformation;
+}
+
+table local_system_c2s_mixPlayer_data
+{
+	result							: RESULT;
+}
+
+table local_system_s2c_mixPlayer_data
+{
+	result							: RESULT;
+}
+
+
+table local_system_s2c_roomInfo_data
+{
+	roomid							: int;
+}
+
+table system_s2s_clientAliveCheck_data
+{
+	idx								: int;
+	elapsedtime						: float;
+	clienttime						: float;
+	syncpacket						: bool;
+	s2cwaylatency					: double;
+}
+
+table system_c2s_blackBox_data
+{
+	userid							: int;
+	timescale						: float;
+	illegalcount					: int;
+	memorytampercount				: int;
+	snrnsisj						: [byte];
+}
+
+table system_c2s_test_data
+{
+	stringdata						: string;
+	snrnsisj						: [byte];
+}
+
+table system_s2c_test_data
+{
+	stringdata						: string;
+	snrnsisj						: [byte];
+}

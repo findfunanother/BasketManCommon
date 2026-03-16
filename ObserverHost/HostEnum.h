@@ -1,0 +1,200 @@
+#pragma once
+
+#include "HostDefine.h"
+
+//! 20200821 Host 열거형 정의 - by thinkingpig
+
+enum class EHOST_STATE
+{
+	NONE,
+	ARRANGE,
+	BREAK_TIME,
+	END,
+	INIT,
+	JUMP_BALL,
+	LINE_UP,
+	LOAD,
+	PLAY,
+	READY,
+	RESULT,
+	SCENE_START,
+	SCORE,
+		
+	CHALLENGE_INIT,
+	CHALLENGE_BREAKTIME,
+	CHALLENGE_READY,
+	CHALLENGE_PLAY,
+	CHALLENGE_END,
+
+	TRAINING,
+};
+
+enum class EHOST_USER_STATE
+{
+	NONE,
+	LOGIN,
+	INIT,
+	LOAD,
+	SCENE_START,
+	READY,
+	PLAY,
+	SCORE,
+	SCENE_END
+};
+
+enum class EHOST_CHARACTER_STATE
+{
+	NONE,
+	MOVE,
+	STAND
+};
+
+enum class ESEND_MESSAGE_STATE
+{
+	SEND_OK,
+	RECEIVE_OK,
+	SEND_LIST_ZERO,
+	ENCODE_FAIL,
+	LAST_SEND_FAIL,
+	READ_HEADER_FAIL,
+	PACKET_NULL,
+	NOT_FOUND_PACKET_TYPE,
+	INPUT_DATA_FAIL,
+};
+
+// 클라이언트 접속 상태
+enum class ECONNECT_STATE
+{
+	NONE,
+	JOIN,
+	CONNECT,
+	DISCONNECT,
+	WAIT,
+	QUIT,
+};
+
+// 유저 타입
+enum class EUSER_TYPE
+{
+	NORMAL,		// 일반 유저
+	OBSERVER,	// 관전
+};
+
+// 캐릭터 타입
+enum class ECHARACTER_TYPE
+{
+	NORMAL,		// 일반 유저 캐릭터
+	AI,			// AI 캐릭터
+};
+
+enum class EMODE_TYPE
+{
+	NONE = 0,
+	THREE_ON_THREE = 1,
+	TWO_ON_TWO = 2,
+	ONE_ON_ONE = 3,
+	AI = 4, 
+	TRAINING = 5, 
+	SKILL_CHALLENGE_OFF_BALL_MOVE = 6, 
+	SKILL_CHALLENGE_REBOUND = 7,
+	SKILL_CHALLENGE_PASS = 8,
+	SKILL_CHALLENGE_JUMP_SHOT_BLOCK = 9,
+	CUSTOM = 10,
+	TRIO = 11,
+	CONTINUOUS = 12,
+};
+
+enum class ECHARACTER_ROLE
+{
+	ROLE_NONE = 0,
+	ROLE_CENTER = 1,
+	ROLE_FOWARD_POWER = 2,
+	ROLE_FOWARD_SMALL = 4,
+	ROLE_GUARD_POINT = 8,
+	ROLE_GUARD_SHOOTING = 16,
+};
+
+enum class EBALL_STATE
+{
+	NONE				= 0x0000,
+	ALLEYOOP			= 0x0010,
+	JUMP				= 0x0020,
+	LOOSE				= 0x0030,
+	LOOSE_BLOCK			= 0x0031,
+	LOOSE_COLLISION		= 0x0032,
+	LOOSE_LAY			= 0x0033,
+	LOOSE_PASS			= 0x0034,
+	LOOSE_REBOUND		= 0x0035,
+	LOOSE_STEAL			= 0x0036,
+	PASS				= 0x0040,
+	PASS_NORMAL			= 0x0041,
+	PASS_BLOCK			= 0x0042,
+	PASS_REBOUND		= 0x0043,
+	PASS_LOOSE			= 0x0044,
+	PICK				= 0x0050,
+	PICK_BLOCK			= 0x0051,
+	PICK_LOOSE			= 0x0052,
+	PICK_PASS			= 0x0053,
+	PICK_REBOUND		= 0x0054,
+	PICK_STEAL			= 0x0055,
+	READY				= 0x0060,
+	SHOT				= 0x0070,
+	SHOT_DUNK			= 0x0071,
+	SHOT_JUMP			= 0x0072,
+	SHOT_LAYUP			= 0x0073,
+	SHOT_POST			= 0x0074,
+};
+
+enum class ELAST_ACTION_TYPE	// 기록에 필요한 것만
+{
+	NONE = 0,
+	SHOT = 1,
+	STEAL = 2,
+	REBOUD = 3,
+	BLOCK = 4,
+};
+
+enum class ECHARACTER_RECORD_TYPE
+{
+	NONE = 0,
+	TRY_2POINT = 1,	// 2점슛 시도
+	SUC_2POINT = 2,	// 2점슛 득점
+	TRY_3POINT = 3,	// 3점슛 시도
+	SUC_3POINT = 4,	// 3점슛 득점
+	ASSIST = 5,		// 어시스트
+	REBOUND = 6,	// 리바운드
+	BLOCK = 7,		// 블럭
+	STEAL = 8,		// 스틸
+	LOOSE_BALL = 9,	// 루즈볼
+	TURN_OVER = 10,	// 턴오버
+};
+
+enum class EMOVEMENT_RESTRICTION
+{
+	NONE = 0,
+	OUTSIDE_TO_INSIDE_RESTRICTION = 1,	// 공격팀이 3점 라인 안으로 못들어가게
+	INSIDE_TO_OUTSIDE_RESTRICTION = 2	// 수비팀이 3점 라인 밖으로 못나가게
+};
+
+enum class EBURST_ACTION_SUBJECT
+{
+	NONE = 0,
+	MY = 1,				// 액션 주체가 나
+	OUR_TEAM = 2,		// 액션 주체가 우리팀
+	OPPONENT_TEAM = 3	// 액션 주체가 상대팀
+};
+
+enum class EBURST_ON_FIRE_MODE_STEP
+{
+	NONE = 0,
+	STEP_ONE = 1,
+	STEP_TWO = 2,
+};
+
+enum class EGAME_SCORE_STATUS
+{
+	NONE = 0,
+	LOOSING_IN_SCORE = 1,	// 지고 있는 경우
+	WINNING_IN_SCORE = 2,	// 이기고 있는 경우
+	TIE_IN_SCORE = 3,		// 비기고 있는 경우
+};

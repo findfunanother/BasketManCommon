@@ -1,0 +1,48 @@
+# Visual Studio user and workspace files
+.vs/
+**/.vs/
+**/.svn/
+**/.deps/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.VC.db
+*.VC.opendb
+
+# Build outputs
+**/[Dd]ebug/
+**/[Rr]elease/
+**/x64/
+**/[Bb]in/
+**/obj/
+**/out/
+**/build/
+**/CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+
+# Compiler and linker artifacts
+*.obj
+*.o
+*.a
+*.lib
+*.dll
+*.exp
+*.ilk
+*.idb
+*.ipch
+*.pch
+*.pdb
+*.tlog
+*.lastbuildstate
+
+# Logs and temporary files
+*.log
+*.tmp
+*.cache
+
+# Vendored tools and archives not needed for source history
+Host/3rd/openssl-3.2.0.tar.gz
+GameCore/Flatbuffer/flatc.exe

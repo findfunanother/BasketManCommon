@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{af640d59-0231-42fc-b494-60d4e52e1ea3}</ProjectGuid>
+    <RootNamespace>HostTest</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>$(SolutionDir)..\Host\protobuf;$(ProjectDir)lib;$(SolutionDir)Bin/$(Configuration);$(ProjectDir)../../Host/host/Debug/host;$(SolutionDir)../Host/host/Debug/host;$(SolutionDir)..\Host\3rd\OpenSSL\lib\VC\x64\MD;$(SolutionDir)..\Host\3rd\OpenSSL\lib\VC\x64\MDd;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)../../GameCore/Includes;$(ProjectDir)Include;$(ProjectDir)../../GameCore;$(ProjectDir)../../Host/protobuf/;$(ProjectDir)../../Host/host/;$(ProjectDir)../../Host/host/../../Host/3rd/protobuf-3.10.1/src;$(ProjectDir)../../Host/3rd/enet-1.3.13/include;$(ProjectDir)../../Host/3rd/enet-1.3.13;$(ProjectDir)../../Host/host/bin;$(ProjectDir)../../Host/3rd/OpenSSL/include;$(IncludePath)</IncludePath>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <OutDir>$(SolutionDir)$(Platform)\bin\$(Configuration)\</OutDir>
+    <ExternalIncludePath>$(ExternalIncludePath)</ExternalIncludePath>
+    <ReferencePath>$(VC_ReferencesPath_x64);</ReferencePath>
+    <SourcePath>$(SourcePath)</SourcePath>
+    <IntDir>$(ProjectDir)/$(Configuration)/$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(ProjectDir)../../GameCore/Includes;$(ProjectDir)Include;$(ProjectDir)../../GameCore;$(ProjectDir)../../Host/protobuf/;$(ProjectDir)../../Host/host/;$(ProjectDir)../../Host/host/../../Host/3rd/protobuf-3.10.1/src;$(ProjectDir)../../Host/3rd/enet-1.3.13/include;$(ProjectDir)../../Host/3rd/enet-1.3.13;$(ProjectDir)../../Host/host/bin;$(ProjectDir)../../Host/3rd/OpenSSL/include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>../../Host/host/bin/Debug;$(SolutionDir)$(Platform)\Bin\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>GameCore.lib;Host.lib;FtpStackd.lib;SipPlatformd.lib;enet.lib;WSock32.Lib;capi.lib;dasync.lib;ec_internal_test.lib;evp_extra_test2.lib;legacy.lib;libapps.lib;libcommon.lib;libcrypto.lib;libcrypto_static.lib;libdefault.lib;liblegacy.lib;libssl.lib;libssl_static.lib;libtestutil.lib;loader_attic.lib;openssl.lib;ossltest.lib;padlock.lib;p_test.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <StackReserveSize>268435456</StackReserveSize>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OmitFramePointers>false</OmitFramePointers>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>../../Host/host/bin/Debug;$(SolutionDir)$(Platform)\Bin\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>GameCore.lib;Host.lib;FtpStackd.lib;SipPlatformd.lib;enet.lib;WSock32.Lib;capi.lib;dasync.lib;ec_internal_test.lib;evp_extra_test2.lib;legacy.lib;libapps.lib;libcommon.lib;libcrypto.lib;libcrypto_static.lib;libdefault.lib;liblegacy.lib;libssl.lib;libssl_static.lib;libtestutil.lib;loader_attic.lib;openssl.lib;ossltest.lib;padlock.lib;p_test.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <StackReserveSize>268435456</StackReserveSize>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)lib;$(ProjectDir)../../Host/host/x64/Release;$(ProjectDir)../../GameCore/x64/Release;$(ProjectDir)../../Physics/x64/Release;$(ProjectDir)../../Host/3rd/OpenSSL/lib/VC/x64/MD;$(ProjectDir)..\x64\Bin\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>GameCore.lib;Host.lib;FtpStackd.lib;SipPlatformd.lib;enet.lib;WSock32.Lib;capi.lib;dasync.lib;ec_internal_test.lib;evp_extra_test2.lib;legacy.lib;libapps.lib;libcommon.lib;libcrypto.lib;libcrypto_static.lib;libdefault.lib;liblegacy.lib;libssl.lib;libssl_static.lib;libtestutil.lib;loader_attic.lib;openssl.lib;ossltest.lib;padlock.lib;p_test.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <StackReserveSize>268435456</StackReserveSize>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="HostTest.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="HostTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="HostTest.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="HostTest.ico" />
+    <Image Include="small.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Aimar.h" />
+    <ClInclude Include="Aldo.h" />
+    <ClInclude Include="BallController.h" />
+    <ClInclude Include="CharacterAction.h" />
+    <ClInclude Include="CharacterBuff.h" />
+    <ClInclude Include="CharacterMovement.h" />
+    <ClInclude Include="CharacterState.h" />
+    <ClInclude Include="CharacterState_Block.h" />
+    <ClInclude Include="CharacterState_FakeShot.h" />
+    <ClInclude Include="CharacterState_Move.h" />
+    <ClInclude Include="CharacterState_Pass.h" />
+    <ClInclude Include="CharacterState_Pick.h" />
+    <ClInclude Include="CharacterState_Rebound.h" />
+    <ClInclude Include="CharacterState_Shot.h" />
+    <ClInclude Include="CharacterState_Stand.h" />
+    <ClInclude Include="Ability.h" />
+    <ClInclude Include="DefaultCharacter.h" />
+    <ClInclude Include="Duke.h" />
+    <ClInclude Include="Flores.h" />
+    <ClInclude Include="Hayato.h" />
+    <ClInclude Include="Ivan.h" />
+    <ClInclude Include="Jacky.h" />
+    <ClInclude Include="Kent.h" />
+    <ClInclude Include="Kido.h" />
+    <ClInclude Include="Kyle.h" />
+    <ClInclude Include="Lia.h" />
+    <ClInclude Include="Lily.h" />
+    <ClInclude Include="LinCC.h" />
+    <ClInclude Include="Ling.h" />
+    <ClInclude Include="Lucky.h" />
+    <ClInclude Include="Luyao.h" />
+    <ClInclude Include="MannerManager.h" />
+    <ClInclude Include="Mina.h" />
+    <ClInclude Include="Momo.h" />
+    <ClInclude Include="Niky.h" />
+    <ClInclude Include="Norma.h" />
+    <ClInclude Include="Okafor.h" />
+    <ClInclude Include="Olga.h" />
+    <ClInclude Include="Play_c2s_ballShot.h" />
+    <ClInclude Include="Play_c2s_common.h" />
+    <ClInclude Include="ProcessPacket.h" />
+    <ClInclude Include="Qiqi.h" />
+    <ClInclude Include="Qiuayanyu.h" />
+    <ClInclude Include="Sam.h" />
+    <ClInclude Include="Sarang.h" />
+    <ClInclude Include="State_MiniGameCustom.h" />
+    <ClInclude Include="State_Tutorial.h" />
+    <ClInclude Include="FlatBufProtocol.h" />
+    <ClInclude Include="FlatBufPacket.h" />
+    <ClInclude Include="FlatBufPacketImplement.h" />
+    <ClInclude Include="Character.h" />
+    <ClInclude Include="CharacterManager.h" />
+    <ClInclude Include="CSVLoader.h" />
+    <ClInclude Include="CSVParser.h" />
+    <ClInclude Include="DevManager.h" />
+    <ClInclude Include="EnvironmentObject.h" />
+    <ClInclude Include="FileLog.h" />
+    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="HeaderDefine.h" />
+    <ClInclude Include="HostAPI.h" />
+    <ClInclude Include="HostCommonFunction.h" />
+    <ClInclude Include="InGameBalanceData.h" />
+    <ClInclude Include="PacketImplement.h" />
+    <ClInclude Include="ResourceBase.h" />
+    <ClInclude Include="ResourceCppHeader.h" />
+    <ClInclude Include="ResourceManager.h" />
+    <ClInclude Include="ResourceStruct.h" />
+    <ClInclude Include="ShotSolution.h" />
+    <ClInclude Include="ShotSolutionData.h" />
+    <ClInclude Include="State.h" />
+    <ClInclude Include="State_BreakTime.h" />
+    <ClInclude Include="Host.h" />
+    <ClInclude Include="HostCommonData.h" />
+    <ClInclude Include="HostDefine.h" />
+    <ClInclude Include="HostEnum.h" />
+    <ClInclude Include="HostStruct.h" />
+    <ClInclude Include="HostTypeDefine.h" />
+    <ClInclude Include="HostUserInfo.h" />
+    <ClInclude Include="PacketBase.h" />
+    <ClInclude Include="PhysicsHandler.h" />
+    <ClInclude Include="State_Challenge.h" />
+    <ClInclude Include="State_Challenge_OffBallMove.h" />
+    <ClInclude Include="State_Challenge_OffBallMove_End.h" />
+    <ClInclude Include="State_Challenge_OffBallMove_Init.h" />
+    <ClInclude Include="State_Challenge_OffBallMove_Play.h" />
+    <ClInclude Include="State_Challenge_OffBallMove_Ready.h" />
+    <ClInclude Include="State_Challenge_Rebound.h" />
+    <ClInclude Include="State_Challenge_Rebound_End.h" />
+    <ClInclude Include="State_Challenge_Rebound_Init.h" />
+    <ClInclude Include="State_Challenge_Rebound_Play.h" />
+    <ClInclude Include="State_Challenge_Rebound_Ready.h" />
+    <ClInclude Include="State_Challenge_Pass.h" />
+    <ClInclude Include="State_Challenge_Pass_End.h" />
+    <ClInclude Include="State_Challenge_Pass_Init.h" />
+    <ClInclude Include="State_Challenge_Pass_Play.h" />
+    <ClInclude Include="State_Challenge_Pass_Ready.h" />
+    <ClInclude Include="State_Challenge_JumpShotBlock.h" />
+    <ClInclude Include="State_Challenge_JumpShotBlock_BreakTime.h" />
+    <ClInclude Include="State_Challenge_JumpShotBlock_End.h" />
+    <ClInclude Include="State_Challenge_JumpShotBlock_Init.h" />
+    <ClInclude Include="State_Challenge_JumpShotBlock_Play.h" />
+    <ClInclude Include="State_Challenge_JumpShotBlock_Ready.h" />
+    <ClInclude Include="State_ChallengeResult.h" />
+    <ClInclude Include="State_End.h" />
+    <ClInclude Include="State_Init.h" />
+    <ClInclude Include="State_JumpBall.h" />
+    <ClInclude Include="State_LineUp.h" />
+    <ClInclude Include="State_Load.h" />
+    <ClInclude Include="State_Play.h" />
+    <ClInclude Include="State_Ready.h" />
+    <ClInclude Include="State_Result.h" />
+    <ClInclude Include="State_Score.h" />
+    <ClInclude Include="State_SceneStart.h" />
+    <ClInclude Include="State_Arrange.h" />
+    <ClInclude Include="State_Training.h" />
+    <ClInclude Include="TestStruct.h" />
+    <ClInclude Include="Thompson.h" />
+    <ClInclude Include="TimeManager.h" />
+    <ClInclude Include="Tina.h" />
+    <ClInclude Include="Uncle.h" />
+    <ClInclude Include="Util.h" />
+    <ClInclude Include="VerifyManager.h" />
+    <ClInclude Include="Wuko.h" />
+    <ClInclude Include="Xiao.h" />
+    <ClInclude Include="XorShift.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Aimar.cpp" />
+    <ClCompile Include="Aldo.cpp" />
+    <ClCompile Include="BallController.cpp" />
+    <ClCompile Include="CharacterAction.cpp" />
+    <ClCompile Include="CharacterBuff.cpp" />
+    <ClCompile Include="CharacterMovement.cpp" />
+    <ClCompile Include="CharacterState.cpp" />
+    <ClCompile Include="CharacterState_Block.cpp" />
+    <ClCompile Include="CharacterState_FakeShot.cpp" />
+    <ClCompile Include="CharacterState_Move.cpp" />
+    <ClCompile Include="CharacterState_Pass.cpp" />
+    <ClCompile Include="CharacterState_Pick.cpp" />
+    <ClCompile Include="CharacterState_Rebound.cpp" />
+    <ClCompile Include="CharacterState_Shot.cpp" />
+    <ClCompile Include="CharacterState_Stand.cpp" />
+    <ClCompile Include="Ability.cpp" />
+    <ClCompile Include="DefaultCharacter.cpp" />
+    <ClCompile Include="Duke.cpp" />
+    <ClCompile Include="Flores.cpp" />
+    <ClCompile Include="Hayato.cpp" />
+    <ClCompile Include="Ivan.cpp" />
+    <ClCompile Include="Jacky.cpp" />
+    <ClCompile Include="Kent.cpp" />
+    <ClCompile Include="Kido.cpp" />
+    <ClCompile Include="Kyle.cpp" />
+    <ClCompile Include="Lia.cpp" />
+    <ClCompile Include="Lily.cpp" />
+    <ClCompile Include="LinCC.cpp" />
+    <ClCompile Include="Ling.cpp" />
+    <ClCompile Include="Lucky.cpp" />
+    <ClCompile Include="Luyao.cpp" />
+    <ClCompile Include="MannerManager.cpp" />
+    <ClCompile Include="Mina.cpp" />
+    <ClCompile Include="Momo.cpp" />
+    <ClCompile Include="Niky.cpp" />
+    <ClCompile Include="Norma.cpp" />
+    <ClCompile Include="Okafor.cpp" />
+    <ClCompile Include="Olga.cpp" />
+    <ClCompile Include="Play_c2s_ballShot.cpp" />
+    <ClCompile Include="Play_c2s_common.cpp" />
+    <ClCompile Include="ProcessPacket.cpp" />
+    <ClCompile Include="Qiqi.cpp" />
+    <ClCompile Include="Qiuayanyu.cpp" />
+    <ClCompile Include="Sam.cpp" />
+    <ClCompile Include="Sarang.cpp" />
+    <ClCompile Include="State_MiniGameCustom.cpp" />
+    <ClCompile Include="State_Tutorial.cpp" />
+    <ClCompile Include="FlatBufProtocol.cpp" />
+    <ClCompile Include="FlatBufPacketImplement.cpp" />
+    <ClCompile Include="Character.cpp" />
+    <ClCompile Include="CharacterManager.cpp" />
+    <ClCompile Include="DevManager.cpp" />
+    <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="HostCommonFunction.cpp" />
+    <ClCompile Include="State_Challenge.cpp" />
+    <ClCompile Include="CSVLoader.cpp" />
+    <ClCompile Include="CSVParser.cpp" />
+    <ClCompile Include="EnvironmentObject.cpp" />
+    <ClCompile Include="FileLog.cpp" />
+    <ClCompile Include="HostAPI.cpp" />
+    <ClCompile Include="InGameBalanceData.cpp" />
+    <ClCompile Include="ResourceManager.cpp" />
+    <ClCompile Include="ShotSolution.cpp" />
+    <ClCompile Include="ShotSolutionData.cpp" />
+    <ClCompile Include="State.cpp" />
+    <ClCompile Include="State_BreakTime.cpp" />
+    <ClCompile Include="Host.cpp" />
+    <ClCompile Include="HostUserInfo.cpp" />
+    <ClCompile Include="PhysicsHandler.cpp" />
+    <ClCompile Include="State_Challenge_OffBallMove.cpp" />
+    <ClCompile Include="State_Challenge_OffBallMove_End.cpp" />
+    <ClCompile Include="State_Challenge_OffBallMove_Init.cpp" />
+    <ClCompile Include="State_Challenge_OffBallMove_Play.cpp" />
+    <ClCompile Include="State_Challenge_OffBallMove_Ready.cpp" />
+    <ClCompile Include="State_Challenge_Rebound.cpp" />
+    <ClCompile Include="State_Challenge_Rebound_End.cpp" />
+    <ClCompile Include="State_Challenge_Rebound_Init.cpp" />
+    <ClCompile Include="State_Challenge_Rebound_Play.cpp" />
+    <ClCompile Include="State_Challenge_Rebound_Ready.cpp" />
+    <ClCompile Include="State_Challenge_Pass.cpp" />
+    <ClCompile Include="State_Challenge_Pass_End.cpp" />
+    <ClCompile Include="State_Challenge_Pass_Init.cpp" />
+    <ClCompile Include="State_Challenge_Pass_Play.cpp" />
+    <ClCompile Include="State_Challenge_Pass_Ready.cpp" />
+    <ClCompile Include="State_Challenge_JumpShotBlock.cpp" />
+    <ClCompile Include="State_Challenge_JumpShotBlock_BreakTime.cpp" />
+    <ClCompile Include="State_Challenge_JumpShotBlock_End.cpp" />
+    <ClCompile Include="State_Challenge_JumpShotBlock_Init.cpp" />
+    <ClCompile Include="State_Challenge_JumpShotBlock_Play.cpp" />
+    <ClCompile Include="State_Challenge_JumpShotBlock_Ready.cpp" />
+    <ClCompile Include="State_ChallengeResult.cpp" />
+    <ClCompile Include="State_End.cpp" />
+    <ClCompile Include="State_Init.cpp" />
+    <ClCompile Include="State_JumpBall.cpp" />
+    <ClCompile Include="State_LineUp.cpp" />
+    <ClCompile Include="State_Load.cpp" />
+    <ClCompile Include="State_Play.cpp" />
+    <ClCompile Include="State_Ready.cpp" />
+    <ClCompile Include="State_Result.cpp" />
+    <ClCompile Include="State_Score.cpp" />
+    <ClCompile Include="State_SceneStart.cpp" />
+    <ClCompile Include="State_Arrange.cpp" />
+    <ClCompile Include="State_Training.cpp" />
+    <ClCompile Include="Thompson.cpp" />
+    <ClCompile Include="TimeManager.cpp" />
+    <ClCompile Include="Tina.cpp" />
+    <ClCompile Include="Uncle.cpp" />
+    <ClCompile Include="Util.cpp" />
+    <ClCompile Include="VerifyManager.cpp" />
+    <ClCompile Include="Wuko.cpp" />
+    <ClCompile Include="Xiao.cpp" />
+    <ClCompile Include="XorShift.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{d4794eed-f9bc-437d-8415-06dcaf2a1b29}</ProjectGuid>
+    <RootNamespace>host</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>true</CLRSupport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)../../HostTest/Bin/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)/$(Configuration)/$(ProjectName)\</IntDir>
+    <IncludePath>$(ProjectDir)..\flatbuf;$(ProjectDir)..\..\GameCore\includes;$(ProjectDir)..\..\GameCore;$(ProjectDir)..\..\Physics;$(ProjectDir)..\3rd\enet-1.3.13\include;$(ProjectDir)..\3rd\enet-1.3.13;$(ProjectDIr)..\3rd\OpenSSL\include;$(ProjectDIr)..\3rd\OpenSSL;$(IncludePath)</IncludePath>
+    <ReferencePath>$(VC_ReferencesPath_x64);</ReferencePath>
+    <LibraryPath>$(SolutionDir)Bin/$(Configuration);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(ProjectDir)..\3rd\OpenSSL\lib\VC\x64\MD;$(ProjectDir)..\3rd\OpenSSL\lib\VC\x64\MDd</LibraryPath>
+    <ExternalIncludePath>$(ProjectDir)..\..\GameCore;$(VC_IncludePath);$(WindowsSDK_IncludePath);</ExternalIncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(ProjectDir)..\flatbuf;$(ProjectDir)..\..\GameCore\includes;$(ProjectDir)..\..\GameCore;$(ProjectDir)..\..\Physics;$(ProjectDir)..\3rd\enet-1.3.13\include;$(ProjectDir)..\3rd\enet-1.3.13;$(ProjectDIr)..\3rd\OpenSSL\include;$(ProjectDIr)..\3rd\OpenSSL;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Bin/$(Configuration);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(ProjectDir)..\3rd\OpenSSL\lib\VC\x64\MD</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;HOST_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;HOST_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\GameCore\x64\Release;$(ProjectDir)..\..\Physics\x64\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>GameCore.lib;Physics.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>DEFINET;BC_EXPORT_DLL;_DEBUG;_WINDOWS;_USRDLL;HOST_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <CompileAsManaged>
+      </CompileAsManaged>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4244; 4605; 4267; 4065;</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>GameCore.lib;Physics.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AssemblyDebug>true</AssemblyDebug>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(TargetDir)host.dll" "$(SolutionDir)$(Platform)\Bin\$(Configuration)\host.dll"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;DEFINET;BC_EXPORT_DLL;_WINDOWS;_USRDLL;HOST_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\GameCore\x64\Release;$(ProjectDir)..\..\Physics\x64\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>GameCore.lib;Physics.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

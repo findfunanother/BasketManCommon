@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Emulation xmlns="http://research.microsoft.com/asia"><VirtualChannel name="VirtualChannel 3" DispatchType="packet"><FilterList><Filter name="FILTER_1" not="0"/></FilterList><VirtualLink name="LINK_1" instances="1"><LinkRule dir="upstream"><Latency><Fixed><Time unit="msec">80</Time></Fixed></Latency></LinkRule><LinkRule dir="downstream"><Latency><Fixed><Time unit="msec">80</Time></Fixed></Latency></LinkRule></VirtualLink></VirtualChannel></Emulation>
