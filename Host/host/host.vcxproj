@@ -326,15 +326,15 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(ProjectDir)../../HostTest/Bin/$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)/$(Configuration)/$(ProjectName)\</IntDir>
-    <IncludePath>$(ProjectDir)..\flatbuf;$(ProjectDir)..\..\GameCore\includes;$(ProjectDir)..\..\GameCore;$(ProjectDir)..\..\Physics;$(ProjectDir)..\3rd\enet-1.3.13\include;$(ProjectDir)..\3rd\enet-1.3.13;$(ProjectDIr)..\3rd\OpenSSL\include;$(ProjectDIr)..\3rd\OpenSSL;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)..\flatbuf;$(ProjectDir)..\..\GameCore\includes;$(ProjectDir)..\..\GameCore;$(ProjectDir)..\..\Physics;$(ProjectDir)..\3rd\enet-1.3.13\include;$(ProjectDir)..\3rd\enet-1.3.13;$(IncludePath)</IncludePath>
     <ReferencePath>$(VC_ReferencesPath_x64);</ReferencePath>
-    <LibraryPath>$(SolutionDir)Bin/$(Configuration);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(ProjectDir)..\3rd\OpenSSL\lib\VC\x64\MD;$(ProjectDir)..\3rd\OpenSSL\lib\VC\x64\MDd</LibraryPath>
+    <LibraryPath>$(SolutionDir)Bin/$(Configuration);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
     <ExternalIncludePath>$(ProjectDir)..\..\GameCore;$(VC_IncludePath);$(WindowsSDK_IncludePath);</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(ProjectDir)..\flatbuf;$(ProjectDir)..\..\GameCore\includes;$(ProjectDir)..\..\GameCore;$(ProjectDir)..\..\Physics;$(ProjectDir)..\3rd\enet-1.3.13\include;$(ProjectDir)..\3rd\enet-1.3.13;$(ProjectDIr)..\3rd\OpenSSL\include;$(ProjectDIr)..\3rd\OpenSSL;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Bin/$(Configuration);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(ProjectDir)..\3rd\OpenSSL\lib\VC\x64\MD</LibraryPath>
+    <IncludePath>$(ProjectDir)..\flatbuf;$(ProjectDir)..\..\GameCore\includes;$(ProjectDir)..\..\GameCore;$(ProjectDir)..\..\Physics;$(ProjectDir)..\3rd\enet-1.3.13\include;$(ProjectDir)..\3rd\enet-1.3.13;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Bin/$(Configuration);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

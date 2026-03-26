@@ -8,8 +8,8 @@ MESSAGE(" ")
 MESSAGE("======================================== ProjectName : ${CMAKE_PROJECT_NAME}")
 
 # 빌드 타입
-#set(CMAKE_BUILD_TYPE Release)
-SET(CMAKE_BUILD_TYPE Debug)
+#set(CMAKE_BUILD_TYPE Debug)
+SET(CMAKE_BUILD_TYPE Release)
 
 MESSAGE("======================================== BuildType : ${CMAKE_BUILD_TYPE}")
 
@@ -19,7 +19,9 @@ MESSAGE("======================================== VerboseMakefile : ${CMAKE_VERB
 
 
 # 컴파일러
-if (WIN32)
+if (ANDROID)
+	MESSAGE("======================================== Platform : Android")
+elseif (WIN32)
 	MESSAGE("======================================== Platform : Windows")
 elseif (UNIX AND NOT APPLE)
 	MESSAGE("======================================== Platform : Linux")
@@ -41,7 +43,11 @@ SET(CMAKE_CXX_FLAGS 		"-std=c++11 -g3 -O2 -Wall -DBUILDTIME=${BUILDTIME}")
 SET(CMAKE_CXX_FLAGS_DEBUG 	"-std=c++11 -g3 -O0 -Wall -DBUILDTIME=${BUILDTIME}")
 SET(CMAKE_CXX_FLAGS_RELEASE "-std=c++11 -g0 -O3 -Wall -DBUILDTIME=${BUILDTIME}")
 
-ADD_COMPILE_OPTIONS(-ldl)
+if (ANDROID)
+	set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -ldl")
+else()
+	ADD_COMPILE_OPTIONS(-ldl)
+endif()
 
 
 MESSAGE("======================================== C Compiler : ${CMAKE_C_COMPILER}")
@@ -56,10 +62,12 @@ FILE(GLOB_RECURSE PHYSICS_SRCS ${CMAKE_SOURCE_DIR}
 "*.cpp"
 )
 
-ADD_LIBRARY(physics SHARED ${PHYSICS_SRCS})
+ADD_LIBRARY(Physics SHARED ${PHYSICS_SRCS})
 
-SET_TARGET_PROPERTIES(physics PROPERTIES PREFIX "")
+if (ANDROID)
+	TARGET_COMPILE_OPTIONS(Physics PRIVATE -fPIC)
+endif()
 
-INSTALL( TARGETS physics DESTINATION ${CMAKE_SOURCE_DIR}/../InGameServer/bin/game/cservice/Resource/ )
+INSTALL( TARGETS Physics DESTINATION ${CMAKE_SOURCE_DIR}/../InGameServer/bin/game/cservice/Resource/ )
 
 MESSAGE(" ")

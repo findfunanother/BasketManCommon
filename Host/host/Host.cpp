@@ -49,7 +49,13 @@
 #include <array>
 #include <cstdint>
 #include <mutex>
+
+#ifdef _WIN32
 #include <direct.h>
+#else
+#include <sys/stat.h>
+#include <sys/types.h>
+#endif
 
 #ifdef _MSC_VER
 #else
@@ -59,7 +65,9 @@
 
 namespace
 {
-	const char* kHostLogFilePath = "D:/04.BasketMan/BasketMan.00.Client/Logs/Host/host.log";
+	const char* kHostLogParentDirectoryPath = "Assets/InGame";
+	const char* kHostLogDirectoryPath = "Assets/InGame/HostLogs";
+	const char* kHostLogFilePath = "Assets/InGame/HostLogs/host.log";
 	std::mutex g_hostLogMutex;
 
 	int ParseHostIdToInt(const std::string& hostId)
@@ -89,9 +97,16 @@ namespace
 	{
 		std::lock_guard<std::mutex> lock(g_hostLogMutex);
 
-		// C++17 filesystem 미사용 환경을 위해 고정 경로를 순차 생성한다.
-		_mkdir("D:/04.BasketMan/BasketMan.00.Client/Logs");
-		_mkdir("D:/04.BasketMan/BasketMan.00.Client/Logs/Host");
+		// C++17 filesystem 미사용 환경을 위해 작업 디렉터리 기준 상대 경로를 순차 생성한다.
+	#ifdef _WIN32
+		_mkdir("Assets");
+		_mkdir(kHostLogParentDirectoryPath);
+		_mkdir(kHostLogDirectoryPath);
+	#else
+		mkdir("Assets", 0777);
+		mkdir(kHostLogParentDirectoryPath, 0777);
+		mkdir(kHostLogDirectoryPath, 0777);
+	#endif
 
 		std::ofstream out(kHostLogFilePath, std::ios::app);
 		if (!out.is_open())
@@ -231,7 +246,7 @@ void CHost::Initialize()
 		int datalen = pMB->GetBalanceRawDataLen();
 		if (pData && datalen > 0)
 		{
-			if (!Sha256FromMemory_OpenSSL(
+			if (!BuildDigestFromMemory(
 				reinterpret_cast<const uint8_t*>(pData),
 				datalen,
 				m_serverBalanceDataHash))
@@ -259,7 +274,7 @@ void CHost::Initialize()
 	{
 		int animdataLen = pAnimController->GetDataLength();
 
-		if (!Sha256FromMemory_OpenSSL(
+		if (!BuildDigestFromMemory(
 			reinterpret_cast<const uint8_t*>(pAnimData),
 			animdataLen,
 			m_serverAnimDataHash))
@@ -1804,7 +1819,7 @@ void CHost::VerifyAction(const SPlayerAction* pInfo, string& str)
 }
 
 
-bool CHost::Sha256FromMemory_OpenSSL(const uint8_t* data, size_t length, std::array<uint8_t, 32>& out)
+bool CHost::BuildDigestFromMemory(const uint8_t* data, size_t length, std::array<uint8_t, 32>& out)
 {
 	if (!data || length == 0)
 		return false;

@@ -6,8 +6,8 @@ PROJECT(F4Host)
 MESSAGE("======================================== ProjectName : ${CMAKE_PROJECT_NAME}")
 
 # 빌드 타입
-#set(CMAKE_BUILD_TYPE Release)
-SET(CMAKE_BUILD_TYPE Debug)
+#set(CMAKE_BUILD_TYPE Debug)
+SET(CMAKE_BUILD_TYPE Release)
 MESSAGE("======================================== BuildType : ${CMAKE_BUILD_TYPE}")
 
 SET (CMAKE_VERBOSE_MAKEFILE true )
@@ -22,9 +22,8 @@ SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 #SET(PROTOBUF_INCLUDE_PATH ${CMAKE_SOURCE_DIR}/3rd/protobuf-3.10.1/src)
 #INCLUDE_DIRECTORIES(${PROTOBUF_INCLUDE_PATH})
 SET(GAMECORE_PATH ${CMAKE_SOURCE_DIR}/../GameCore)
-
-#openssl
-SET(OPENSSL_PATH ${CMAKE_SOURCE_DIR}/3rd/openssl-3.2.0)
+SET(GAMECORE_BUILD_DIR ${GAMECORE_PATH}/build CACHE PATH "Directory containing built GameCore library")
+SET(PHYSICS_BUILD_DIR ${CMAKE_SOURCE_DIR}/../Physics/build CACHE PATH "Directory containing built Physics library")
 
 # 써드파티 헤더파일 포함
 INCLUDE_DIRECTORIES(${GAMECORE_PATH})
@@ -32,18 +31,12 @@ INCLUDE_DIRECTORIES(${GAMECORE_PATH}/includes)
 INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/../Physics)
 INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/host)
 
-#openssl
-INCLUDE_DIRECTORIES(${OPENSSL_PATH})
-INCLUDE_DIRECTORIES(${OPENSSL_PATH}/include/openssl)
-
 # 써드파티 링크
 #LINK_DIRECTORIES(${CMAKE_SOURCE_DIR}/3rd/enet-1.3.13/lib)
 #LINK_DIRECTORIES(${CMAKE_SOURCE_DIR}/3rd/protobuf-3.10.1/lib)
 #INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/../Physics/build)
-LINK_DIRECTORIES(${GAMECORE_PATH}/build) # library file path
-
-#openssl
-LINK_DIRECTORIES(${OPENSSL_PATH}) # library file path
+LINK_DIRECTORIES(${GAMECORE_BUILD_DIR})
+LINK_DIRECTORIES(${PHYSICS_BUILD_DIR})
 
 #if(Protobuf_FOUND)
 #MESSAGE("======================================== protobuf FOUND")
@@ -53,7 +46,9 @@ LINK_DIRECTORIES(${OPENSSL_PATH}) # library file path
 
 
 # 컴파일러
-if (WIN32)
+if (ANDROID)
+	MESSAGE("======================================== Platform : Android")
+elseif (WIN32)
 	MESSAGE("======================================== Platform : Windows")
 elseif (UNIX AND NOT APPLE)
 	MESSAGE("======================================== Platform : Linux")
@@ -81,6 +76,10 @@ SET(CMAKE_CXX_FLAGS_RELEASE "-std=c++11 -g0 -O0 -Wall -DBUILDTIME=${BUILDTIME}")
 
 set(CMAKE_INSTALL_RPATH "$ORIGIN")#library path
 
+if (ANDROID)
+	set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -ldl")
+endif()
+
 #ADD_COMPILE_OPTIONS(-Wall -g -c -fPIC -fvisibility=hidden)
 
 MESSAGE("======================================== C Compiler : ${CMAKE_C_COMPILER}")
@@ -89,7 +88,8 @@ MESSAGE("======================================== CMAKE_SOURCE_DIR : ${CMAKE_SOU
 MESSAGE("======================================== CMAKE_BINARY_DIR : ${CMAKE_BINARY_DIR}")
 MESSAGE("======================================== CMAKE_CURRENT_SOURCE_DIR : ${CMAKE_CURRENT_SOURCE_DIR}")
 MESSAGE("======================================== CMAKE_BINARY_DIR : ${CMAKE_BINARY_DIR}")
-MESSAGE("======================================== GAMECORE_BINARY_DIR : ${GAMECORE_PATH}/build")
+MESSAGE("======================================== GAMECORE_BINARY_DIR : ${GAMECORE_BUILD_DIR}")
+MESSAGE("======================================== PHYSICS_BINARY_DIR : ${PHYSICS_BUILD_DIR}")
 
 FILE(GLOB_RECURSE HOST_SRCS ${CMAKE_SOURCE_DIR}
 "../Data/*.h"
@@ -120,7 +120,7 @@ ADD_LIBRARY(host SHARED ${HOST_SRCS} ${PROTO_SRCS})
 
 #TARGET_LINK_LIBRARIES(GameCore Physics "")
 #TARGET_LINK_LIBRARIES(host protobuf::libprotobuf)
-TARGET_LINK_LIBRARIES(host gamecore physics crypto ssl "")
+TARGET_LINK_LIBRARIES(host GameCore Physics "")
 #라이브러리가 있는 위치 ""
 #ADD_LIBRARY(GameCore SHARED ${GAMECORE_SRCS})
 #SET_TARGET_PROPERTIES(Physics PROPERTIES IMPORTED_LOCATION .)
@@ -128,21 +128,21 @@ TARGET_LINK_LIBRARIES(host gamecore physics crypto ssl "")
 
 #TARGET_COMPILE_OPTIONS(Physics PUBLIC -Wall -g -c -fPIC  -Wl -rpath .)
 #TARGET_COMPILE_OPTIONS(GameCore PUBLIC -Wall -g -c -fPIC  -Wl -rpath .)
-TARGET_COMPILE_OPTIONS(host PUBLIC -Wall -g -c -fPIC -fvisibility=hidden -Wl -rpath .)
+TARGET_COMPILE_OPTIONS(host PUBLIC -Wall -g -c -fPIC -fvisibility=hidden)
 
 #LINK_DIRECTORIES(${CMAKE_SOURCE_DIR}/../InGameServer/bin/game/cservice/Resource)
 #LINK_LIBRARIES(host GameCore Physics)
 #LINK_LIBRARIES(GameCore Physics)
-LINK_LIBRARIES(gamecore)
-LINK_LIBRARIES(physics)
-LINK_LIBRARIES(crypto)
-LINK_LIBRARIES(ssl)
+LINK_LIBRARIES(GameCore)
+LINK_LIBRARIES(Physics)
 #SET_TARGET_PROPERTIES(host PROPERTIES CXX_VISIBILITY_PRESET hidden)
 #SET_TARGET_PROPERTIES(Physics PROPERTIES PREFIX "")
 #SET_TARGET_PROPERTIES(host PROPERTIES PREFIX "") 
 #SET_TARGET_PROPERTIES(GameCore PROPERTIES PREFIX "")
 
-SET_TARGET_PROPERTIES(host PROPERTIES LINK_FLAGS "-Wl,-rpath,./game/cservice/Resource") #Rpath Set
+if (NOT ANDROID)
+	SET_TARGET_PROPERTIES(host PROPERTIES LINK_FLAGS "-Wl,-rpath,./game/cservice/Resource") #Rpath Set
+endif()
 
 #INSTALL( TARGETS Physics LIBRARY DESTINATION ${CMAKE_SOURCE_DIR}/../InGameServer/bin/game/cservice/Resource/ )
 INSTALL( TARGETS host LIBRARY DESTINATION ${CMAKE_SOURCE_DIR}/../InGameServer/bin/game/cservice/Resource/ )

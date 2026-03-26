@@ -169,7 +169,7 @@ public:
 	void									VerifyAction(const SPlayerAction* pInfo, string& str);
 	DHOST_TYPE_INT32						VerifyVersionPacket(DHOST_TYPE_INT32 packetID, void* pData, DHOST_TYPE_USER_ID userid = kUSER_ID_INIT);
 
-	bool									Sha256FromMemory_OpenSSL(const uint8_t* data, size_t length, std::array<uint8_t, 32>& out);
+	bool									BuildDigestFromMemory(const uint8_t* data, size_t length, std::array<uint8_t, 32>& out);
 	bool									CompareWithClientHash(const uint8_t clientHash[32], uint32_t clientSize, std::array<uint8_t, 32> severSha256, uint32_t serverSize);
 
 	void									ForceActionStand(DHOST_TYPE_INT32 packetID, void* pData, DHOST_TYPE_USER_ID userid, EFORCE_ACTION_STAND_TYPE type);
